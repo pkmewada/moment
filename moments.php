@@ -20,7 +20,7 @@ require_once "include/header.php";
                     Moments
                 </h1>
                 <div class="hero-desc-row">
-                    <p class="hero-desc">
+                    <p class="hero-desc"> p
                         We capture your moments and transform them into cinematic reels you'll love to watch and share.
                     </p>
                     <div class="hero-decorations">
