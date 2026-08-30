@@ -417,10 +417,19 @@ h6 {
 }
 
 .hero-title {
-    font-size: 64px;
-    line-height: 0.8;
+    font-size: clamp(42px, 5vw, 68px);
     font-weight: 900;
-    color: #050414;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 0 0 24px;
+    color: black;
+}
+
+.hero-text {
+    font-size: 18px;
+    line-height: 1.7;
+    color: black;
+    max-width: 600px;
 }
 
 .highlight {
@@ -487,6 +496,8 @@ h6 {
 .hero-decorations img {
     display: inline-block;
 }
+
+
 
 @media (max-width: 991px) {
     .hero-decorations {
@@ -739,6 +750,10 @@ h6 {
     .stat-number {
         font-size: 34px;
     }
+
+    .stats-section {
+    margin-top: -30px;
+}
 }
 
 @media (max-width: 480px) {
@@ -919,87 +934,112 @@ h6 {
     }
 }
 
-@media (max-width: 1200px) {
-    .brands-inner {
-        padding: 0 40px;
-        grid-template-columns: 160px minmax(0, 1fr);
-        column-gap: 40px;
-    }
+/* ============================================================
+   BRANDS SECTION - PHONE RESPONSIVE
+   ============================================================ */
 
-    .brands-track {
-        gap: 50px;
-        animation-duration: 23s;
-    }
-
-    .brand-logo {
-        width: 110px;
-        flex-basis: 110px;
-    }
-
-    .brand-logo img {
-        max-width: 105px;
-    }
-}
-
+/* Phone responsive - up to 768px */
 @media (max-width: 768px) {
-    .brands-section {
-        padding: 40px 0 50px;
-    }
-
     .brands-inner {
-        padding: 0 20px;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .brands-title {
-        margin-bottom: 25px;
-        margin-left: 0;
+        text-align: center;
+        margin-bottom: 20px;
     }
 
+    .brands-title h4 {
+        font-size: 20px;
+        line-height: 1.3;
+        margin: 0;
+        padding-right: 58px;
+    }
+
+    .brands-marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .brands-track {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        animation: brandsScroll 30s linear infinite;
+        will-change: transform;
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .brand-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        padding: 10px 15px;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .brand-logo i {
+        font-size: 24px;
+        margin-bottom: 6px;
+        display: block;
+        color: #333;
+    }
+
+    .brand-logo span {
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.2;
+        display: block;
+        color: #333;
+        max-width: 80px;
+        word-wrap: break-word;
+    }
+
+    @keyframes brandsScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Hover pause */
+    .brands-marquee:hover .brands-track {
+        animation-play-state: paused;
+    }
+}
+
+/* Extra small phones - up to 480px */
+@media (max-width: 480px) {
     .brands-title h4 {
         font-size: 17px;
     }
 
-    .brands-track {
-        gap: 40px;
-        animation-duration: 20s;
-    }
-
     .brand-logo {
-        width: 100px;
-        height: 55px;
-        flex-basis: 100px;
+        padding: 8px 12px;
+        min-width: 65px;
     }
 
-    .brand-logo img {
-        max-width: 95px;
-        max-height: 35px;
+    .brand-logo i {
+        font-size: 20px;
+        margin-bottom: 4px;
     }
-}
 
-@media (max-width: 480px) {
-    .brands-inner {
-        padding: 0 15px;
+    .brand-logo span {
+        font-size: 10px;
+        max-width: 65px;
     }
 
     .brands-track {
-        gap: 30px;
-        animation-duration: 18s;
-    }
-
-    .brand-logo {
-        width: 90px;
-        flex-basis: 90px;
-    }
-
-    .brand-logo img {
-        max-width: 85px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .brands-track {
-        animation: none;
+        gap: 15px;
     }
 }
 
@@ -1998,7 +2038,7 @@ GUARANTEE - WITH 6 POINTS
     }
 
     .guarantee-image-wrapper {
-        order: -1;
+        order: 0; /* Reset order - will be set in phone view */
     }
 
     .guarantee-image img {
@@ -2032,6 +2072,28 @@ GUARANTEE - WITH 6 POINTS
     }
 }
 
+@media (max-width: 768px) {
+    .guarantee-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .guarantee-points.left-points {
+        order: 1;
+    }
+
+    .guarantee-image-wrapper {
+        order: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .guarantee-points.right-points {
+        order: 3;
+    }
+}
+
 @media (max-width: 600px) {
     .guarantee-section {
         padding: 60px 15px 30px;
@@ -2045,6 +2107,7 @@ GUARANTEE - WITH 6 POINTS
     .guarantee-image img {
         width: 200px;
         height: 320px;
+        margin-left: 70px;
     }
 
     .guarantee-point-num {
@@ -2699,7 +2762,7 @@ RESPONSIVE
 @media (max-width: 480px) {
     .testimonials-grid {
         grid-template-columns: 1fr;
-        height: 380px;
+        height: 600px;
         gap: 12px;
     }
 
@@ -3138,21 +3201,6 @@ RESPONSIVE
     margin-bottom: 20px;
 }
 
-.hero-title {
-    font-size: clamp(42px, 5vw, 68px);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -2px;
-    margin: 0 0 24px;
-    color: black;
-}
-
-.hero-text {
-    font-size: 18px;
-    line-height: 1.7;
-    color: black;
-    max-width: 600px;
-}
 
 .terms-update {
     background: white;
@@ -3297,3 +3345,75 @@ RESPONSIVE
 .legal-block strong {
     color: black;
 }
+
+/* Mobile landscape & portrait tablets */
+@media (max-width: 820px) {
+    
+    .terms-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1px;
+    }
+
+    .terms-update {
+        padding: 10px 24px;
+    }
+
+    .terms-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .terms-sidebar {
+        position: relative;
+        top: 0;
+        display: none; /* hidden on mobile, can be toggled with a button */
+    }
+
+    .terms-content {
+        gap: 40px;
+    }
+
+    .legal-block {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-bottom: 3px;
+    }
+
+    .legal-number {
+        font-size: 20px;
+        opacity: 0.4;
+    }
+
+    .legal-block h2 {
+        font-size: 20px;
+        margin-top: 4px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+
+
+    .terms-update strong {
+        font-size: 24px;
+    }
+
+    .legal-block h2 {
+        font-size: 18px;
+    }
+
+    .legal-block p,
+    .legal-block ul li {
+        font-size: 14px;
+    }
+
+    .terms-update p {
+        font-size: 13px;
+    }
+
+    .terms-sidebar nav a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+

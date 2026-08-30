@@ -368,22 +368,22 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                     </div>
                     <div class="contact-info">
                         <div class="contact-info-box">
-                            <h4>📧 Email</h4>
+                            <h4>Email</h4>
                             <p><a href="mailto:connect@mqlus.in">connect@mqlus.in</a></p>
                             <p style="font-size:13px; color:rgba(255,255,255,0.5);">Send references or event notes</p>
                         </div>
                         <div class="contact-info-box">
-                            <h4>📞 Phone</h4>
+                            <h4>Phone</h4>
                             <p><a href="tel:+9183490098">+91 9183490098</a></p>
                             <p style="font-size:13px; color:rgb(255, 255, 255);">Quick confirmation on WhatsApp</p>
                         </div>
                         <div class="contact-info-box">
-                            <h4>📍 Location</h4>
+                            <h4>Location</h4>
                             <p>73, Scheme 103, Kesar Bag,<br>Indore, Madhya Pradesh 452009</p>
                             <p style="font-size:13px; color:rgba(255,255,255,0.5);">Available for local event shoots</p>
                         </div>
                         <div class="contact-info-box">
-                            <h4>🎯 Event Preferences</h4>
+                            <h4>Event Preferences</h4>
                             <p style="font-size:13px; color:rgba(255,255,255,0.6);">Let us know your event details, important moments, and any special instructions.</p>
                         </div>
                     </div>
