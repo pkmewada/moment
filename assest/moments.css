@@ -1344,7 +1344,7 @@ SERVICE & PRICING - RESPONSIVE ONLY (WITH INCREASED LINE HEIGHT)
     }
 
     .pricing-item:first-child {
-        padding-top: 0;
+        padding-top: 15px;
     }
 
     .pricing-item-header {
