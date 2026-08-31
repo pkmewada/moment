@@ -290,7 +290,7 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
 
         function onMove(clientX) {
             if (!isDragging) return;
-            var delta = (clientX - dragStartX) * 0.35;
+            var delta = (dragStartX - clientX) * 0.35;
             rotation = dragStartRot + delta;
             if (rotation > 360) rotation -= 360;
             if (rotation < 0) rotation += 360;
