@@ -2923,7 +2923,7 @@ RESPONSIVE
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     margin: 0 0 30px 130px;
     position: relative;
-    min-height: 160px;
+    min-height: 230px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3178,9 +3178,9 @@ RESPONSIVE
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 10px 40px;
 }
 
 /* --- Hero --- */

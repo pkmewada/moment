@@ -9,7 +9,7 @@
             </a>
             <div class="footer-contact-group">
                 <strong>Address:</strong>
-                <p>73, Scheme 103, Kesar Bag, Indore, Madhya Pradesh 452009</p>
+                <p>73, Scheme 103, Kesar Bag, Indore,<br> Madhya Pradesh 452009</p>
             </div>
             <div class="footer-contact-group">
                 <strong>Contact:</strong>
