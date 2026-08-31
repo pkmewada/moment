@@ -578,92 +578,7 @@ GUARANTEE - WITH 6 POINTS
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="faq-section" aria-label="Frequently asked questions">
-            <div class="faq-container">
-                <div class="faq-left">
-                    <h2>FAQs</h2>
-                    <p>Got Questions?
-                        We've Got Answers.</p>
-                    <a href="#contact">Have questions?<span>↗</span></a>
-                </div>
-                <div class="faq-right">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What is Moments by MQlus?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Moments by MQlus is a professional event content creation service that captures weddings, birthdays, corporate events, car deliveries, store launches, and special celebrations through cinematic reels and social-ready videos.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What types of events do you cover?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We cover weddings, birthdays, engagements, anniversaries, corporate events, store launches, café shoots, salon shoots, car deliveries, family gatherings, and much more. If it's worth celebrating, we'll capture it.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How soon will I receive my reels?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We offer fast turnaround with selected reels delivered during or shortly after your event. Final edited content is delivered based on your chosen package.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>How do I book a shoot?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Simply share your event date, location, and requirements with us. We'll recommend the best package, confirm your booking, and take care of the rest.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What are your packages?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Our packages start at ₹1,999, with options available for small celebrations, full-day events, weddings, and customized requirements.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Can I customize my package?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Absolutely! Every event is unique, so we can tailor a package based on your event type, duration, and content requirements.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Do you travel for events?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes. We cover events across Indore and nearby locations. Travel charges may apply for venues outside our service area.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>What kind of content will i recevie?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Depending on your package, You'll receive professionally edited reels, cinematic highlight videos, candid interaction videos, and mobile portraits—all optimized for social media.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
+       
         <!-- TESTIMONIALS - 3 COLUMN WITH DIFFERENT SCROLL DIRECTIONS -->
         <section class="testimonials-section" aria-label="Client feedback">
             <div class="testimonials-container">
@@ -1017,6 +932,94 @@ GUARANTEE - WITH 6 POINTS
                 </div>
             </div>
         </section>
+
+         <!-- FAQ -->
+        <section class="faq-section" aria-label="Frequently asked questions">
+            <div class="faq-container">
+                <div class="faq-left">
+                    <h2>FAQs</h2>
+                    <p>Got Questions?
+                        We've Got Answers.</p>
+                    <a href="#contact">Have questions?<span>↗</span></a>
+                </div>
+                <div class="faq-right">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What is Moments by MQlus?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Moments by MQlus is a professional event content creation service that captures weddings, birthdays, corporate events, car deliveries, store launches, and special celebrations through cinematic reels and social-ready videos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What types of events do you cover?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We cover weddings, birthdays, engagements, anniversaries, corporate events, store launches, café shoots, salon shoots, car deliveries, family gatherings, and much more. If it's worth celebrating, we'll capture it.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How soon will I receive my reels?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer fast turnaround with selected reels delivered during or shortly after your event. Final edited content is delivered based on your chosen package.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do I book a shoot?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Simply share your event date, location, and requirements with us. We'll recommend the best package, confirm your booking, and take care of the rest.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What are your packages?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our packages start at ₹1,999, with options available for small celebrations, full-day events, weddings, and customized requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I customize my package?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely! Every event is unique, so we can tailor a package based on your event type, duration, and content requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Do you travel for events?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. We cover events across Indore and nearby locations. Travel charges may apply for venues outside our service area.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What kind of content will i recevie?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Depending on your package, You'll receive professionally edited reels, cinematic highlight videos, candid interaction videos, and mobile portraits—all optimized for social media.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
 
     </main>
 
