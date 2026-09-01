@@ -912,24 +912,6 @@ GUARANTEE - WITH 6 POINTS
                         </div>
                     </div>
                 </div>
-
-                <div class="rating-section">
-                    <div class="rating-item">
-                        <div class="rating-logo rating-logo-red">C</div>
-                        <div class="rating-content">
-                            <div class="rating-stars">★★★★★</div>
-                            <p><strong>4.9/5</strong> Based on 250 reviews</p>
-                        </div>
-                    </div>
-                    <div class="rating-divider"></div>
-                    <div class="rating-item">
-                        <div class="rating-logo">✦</div>
-                        <div class="rating-content">
-                            <div class="rating-stars">★★★★★</div>
-                            <p><strong>4.0/5</strong> Based on 186 reviews</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
