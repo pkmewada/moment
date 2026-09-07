@@ -57,7 +57,7 @@
 
                 <h3>Plan &amp; Support</h3>
 
-                <a href="#booking">Apply / Book</a>
+                <a href="#contact">Apply / Book</a>
 
                 <a href="terms-condition">
                     Terms &amp; Conditions
@@ -67,11 +67,11 @@
                     Privacy Policy
                 </a>
 
-                <a href="#faq">
+                <a href="refund-policy">
                     Refund Policy
                 </a>
 
-                <a href="#footer">
+                <a href="">
                     Legal
                 </a>
 
@@ -81,24 +81,8 @@
             <!-- Logo + Contact -->
             <div class="footer-contact">
 
-                <a class="brand footer-brand" href="moments">
-                    <img
-                        src="images/logo-header.webp"
-                        alt="Moments by MQlus logo"
-                        class="footer-brand-logo"
-                    >
-                </a>
 
-                <div class="footer-contact-group">
-                    <strong>Address:</strong>
-
-                    <p>
-                        73, Scheme 103, Kesar Bag, Indore,<br>
-                        Madhya Pradesh 452009
-                    </p>
-                </div>
-
-                <div class="footer-contact-group">
+                 <div class="footer-contact-group">
                     <strong>Contact:</strong>
 
                     <a href="tel:+919183490098">
@@ -109,6 +93,17 @@
                         connect@mqlus.in
                     </a>
                 </div>
+
+                <div class="footer-contact-group">
+                    <strong>Address:</strong>
+
+                    <p>
+                        73, Scheme 103, Kesar Bag, Indore,<br>
+                        Madhya Pradesh 452009
+                    </p>
+                </div>
+
+               
 
             </div>
 

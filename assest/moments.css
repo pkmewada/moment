@@ -2913,6 +2913,8 @@ RESPONSIVE
     padding: 40px 0 25px;
     overflow: hidden;
     position: relative;
+    border-radius: 1cm;
+    margin:70px 70px 70px 70px;
 }
 
 .container {
@@ -3193,8 +3195,6 @@ RESPONSIVE
     justify-content: center;
 
     overflow: hidden;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
