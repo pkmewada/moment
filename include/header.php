@@ -27,15 +27,12 @@
 
             <nav class="header-nav" aria-label="Primary navigation">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#pricing">Services <span class="plus">+</span></a></li>
+                    <li><a href="moments">Home</a></li>
                     <li style="position:relative;">
-                        <a href="#contact">Work</a>
-                        <span class="work-badge">7</span>
+                        <a href="#sliderTrack">Work</a>
                     </li>
-                    <li><a href="#contact">Pages <span class="plus">+</span></a></li>
-                    <li><a href="#contact">Blog <span class="plus">+</span></a></li>
-                    <li><a href="#contact">Shop <span class="plus">+</span></a></li>
+                    <li><a href="#pricing">Services</a></li>
+                    <li><a href="#review">Review</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -55,12 +52,10 @@
         </div>
 
         <div class="mobile-menu" id="mobileMenu">
-            <a href="/">Home</a>
-            <a href="#pricing">Services +</a>
-            <a href="#contact">Work</a>
-            <a href="#contact">Pages +</a>
-            <a href="#contact">Blog +</a>
-            <a href="#contact">Shop +</a>
+            <a href="moments">Home</a>
+            <a href="#sliderTrack">Work</a>
+            <a href="#pricing">Service</a>
+            <a href="#review">Review</a>
             <a href="#contact">Contact</a>
             <a class="mobile-cta" href="#contact">GET IN TOUCH ↗</a>
         </div>

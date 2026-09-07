@@ -99,7 +99,7 @@ require_once "include/header.php";
 <section class="brands-section" aria-label="Trusted brands">
     <div class="brands-inner">
         <div class="brands-title">
-            <h4>Working with<br>Global Brands</h4>
+           <h4>Your Moments<br>Our Craft.</h4>
         </div>
         <div class="brands-marquee">
             <div class="brands-track">
@@ -111,15 +111,10 @@ require_once "include/header.php";
                 <div class="brand-logo"><span>Shot on iPhone</span></div>
                 <div class="brand-logo"><span>Premium Exp</span></div>
                 <div class="brand-logo"><span>Creative Tech</span></div>
-                <div class="brand-logo"><span>Corp Events</span></div>
-                <div class="brand-logo"><span>Store Opening</span></div>
-                <div class="brand-logo"><span>Car Delivery</span></div>
-                <div class="brand-logo"><span>Family Gather</span></div>
                 <div class="brand-logo"><span>Social Reels</span></div>
                 <div class="brand-logo"><span>Content</span></div>
                 <div class="brand-logo"><span>UGC Videos</span></div>
-                <div class="brand-logo"><span>Events</span></div>
-                <div class="brand-logo"><span>Premium Serv</span></div>
+                <div class="brand-logo"><span>Premium Service</span></div>
 
                 <!-- DUPLICATE set for seamless loop (aria-hidden) -->
                 <div class="brand-logo" aria-hidden="true"><span>Pro Creators</span></div>
@@ -128,16 +123,11 @@ require_once "include/header.php";
                 <div class="brand-logo" aria-hidden="true"><span>High Quality</span></div>
                 <div class="brand-logo" aria-hidden="true"><span>Shot on iPhone</span></div>
                 <div class="brand-logo" aria-hidden="true"><span>Premium Exp</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Creative Tech</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Corp Events</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Store Opening</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Car Delivery</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Family Gather</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Creative Tech</span></div>  
                 <div class="brand-logo" aria-hidden="true"><span>Social Reels</span></div>
                 <div class="brand-logo" aria-hidden="true"><span>Content</span></div>
                 <div class="brand-logo" aria-hidden="true"><span>UGC Videos</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Events</span></div>
-                <div class="brand-logo" aria-hidden="true"><span>Premium Serv</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Premium Service</span></div>
             </div>
         </div>
     </div>
@@ -402,7 +392,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Name -->
             <div class="form-group">
                 <p>
-                    <label for="cf-name">Your name *</label>
+                    <label for="cf-name">Your name</label>
 
                     <input
                         type="text"
@@ -418,7 +408,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Email -->
             <div class="form-group">
                 <p>
-                    <label for="cf-email">Email *</label>
+                    <label for="cf-email">Email</label>
 
                     <input
                         type="email"
@@ -434,7 +424,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Phone -->
             <div class="form-group">
                 <p>
-                    <label for="cf-phone">Phone *</label>
+                    <label for="cf-phone">Phone</label>
 
                     <input
                         type="tel"
@@ -450,7 +440,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Event Type -->
             <div class="form-group">
                 <p>
-                    <label for="cf-event-type">Event type *</label>
+                    <label for="cf-event-type">Event type</label>
 
                     <select
                         id="cf-event-type"
@@ -471,7 +461,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- City -->
             <div class="form-group">
                 <p>
-                    <label for="cf-city">City *</label>
+                    <label for="cf-city">City</label>
 
                     <input
                         type="text"
@@ -488,7 +478,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Event Date -->
             <div class="form-group">
                 <p>
-                    <label for="cf-date">Event date *</label>
+                    <label for="cf-date">Event date</label>
 
                     <input
                         type="date"
@@ -503,7 +493,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
             <!-- Address / Venue -->
             <div class="form-group full">
                 <p>
-                    <label for="cf-address">Venue / Address *</label>
+                    <label for="cf-address">Address</label>
 
                     <input
                         type="text"
@@ -683,7 +673,7 @@ GUARANTEE - WITH 6 POINTS
 
 
 <!-- TESTIMONIALS - 3 COLUMN WITH DIFFERENT SCROLL DIRECTIONS -->
-<section class="testimonials-section" aria-label="Client feedback">
+<section id = "review" class="testimonials-section" aria-label="Client feedback">
     <div class="testimonials-container">
         <!-- Centered heading and paragraph (Trusted box removed) -->
         <div class="testimonials-header">
