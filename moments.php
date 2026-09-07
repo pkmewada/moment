@@ -95,53 +95,53 @@ require_once "include/header.php";
                 <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
             </div>
         </div>
-        <!-- GLOBAL BRANDS - EACH TEXT 15 LETTERS OR LESS -->
-        <section class="brands-section" aria-label="Trusted brands">
-            <div class="brands-inner">
-                <div class="brands-title">
-                    <h4>Working with<br>Global Brands</h4>
-                </div>
-                <div class="brands-marquee">
-                    <div class="brands-track">
-                        <!-- FIRST SET – each text 15 letters or less -->
-                        <div class="brand-logo"><i class="fas fa-user-tie"></i><span>Pro Creators</span></div>
-                        <div class="brand-logo"><i class="fas fa-pen-fancy"></i><span>Ready to Post</span></div>
-                        <div class="brand-logo"><i class="fas fa-book-open"></i><span>Storytelling</span></div>
-                        <div class="brand-logo"><i class="fas fa-star"></i><span>High Quality</span></div>
-                        <div class="brand-logo"><i class="fas fa-mobile-alt"></i><span>Shot on iPhone</span></div>
-                        <div class="brand-logo"><i class="fas fa-gem"></i><span>Premium Exp</span></div>
-                        <div class="brand-logo"><i class="fas fa-microchip"></i><span>Creative Tech</span></div>
-                        <div class="brand-logo"><i class="fas fa-building"></i><span>Corp Events</span></div>
-                        <div class="brand-logo"><i class="fas fa-store"></i><span>Store Opening</span></div>
-                        <div class="brand-logo"><i class="fas fa-truck"></i><span>Car Delivery</span></div>
-                        <div class="brand-logo"><i class="fas fa-users"></i><span>Family Gather</span></div>
-                        <div class="brand-logo"><i class="fas fa-hashtag"></i><span>Social Reels</span></div>
-                        <div class="brand-logo"><i class="fas fa-paint-brush"></i><span>Content</span></div>
-                        <div class="brand-logo"><i class="fas fa-video"></i><span>UGC Videos</span></div>
-                        <div class="brand-logo"><i class="fas fa-calendar-check"></i><span>Events</span></div>
-                        <div class="brand-logo"><i class="fas fa-crown"></i><span>Premium Serv</span></div>
+       <!-- GLOBAL BRANDS - EACH TEXT 15 LETTERS OR LESS -->
+<section class="brands-section" aria-label="Trusted brands">
+    <div class="brands-inner">
+        <div class="brands-title">
+            <h4>Working with<br>Global Brands</h4>
+        </div>
+        <div class="brands-marquee">
+            <div class="brands-track">
+                <!-- FIRST SET – each text 15 letters or less (icons removed) -->
+                <div class="brand-logo"><span>Pro Creators</span></div>
+                <div class="brand-logo"><span>Ready to Post</span></div>
+                <div class="brand-logo"><span>Storytelling</span></div>
+                <div class="brand-logo"><span>High Quality</span></div>
+                <div class="brand-logo"><span>Shot on iPhone</span></div>
+                <div class="brand-logo"><span>Premium Exp</span></div>
+                <div class="brand-logo"><span>Creative Tech</span></div>
+                <div class="brand-logo"><span>Corp Events</span></div>
+                <div class="brand-logo"><span>Store Opening</span></div>
+                <div class="brand-logo"><span>Car Delivery</span></div>
+                <div class="brand-logo"><span>Family Gather</span></div>
+                <div class="brand-logo"><span>Social Reels</span></div>
+                <div class="brand-logo"><span>Content</span></div>
+                <div class="brand-logo"><span>UGC Videos</span></div>
+                <div class="brand-logo"><span>Events</span></div>
+                <div class="brand-logo"><span>Premium Serv</span></div>
 
-                        <!-- DUPLICATE set for seamless loop (aria-hidden) -->
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-user-tie"></i><span>Pro Creators</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-pen-fancy"></i><span>Ready to Post</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-book-open"></i><span>Storytelling</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-star"></i><span>High Quality</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-mobile-alt"></i><span>Shot on iPhone</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-gem"></i><span>Premium Exp</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-microchip"></i><span>Creative Tech</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-building"></i><span>Corp Events</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-store"></i><span>Store Opening</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-truck"></i><span>Car Delivery</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-users"></i><span>Family Gather</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-hashtag"></i><span>Social Reels</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-paint-brush"></i><span>Content</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-video"></i><span>UGC Videos</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-calendar-check"></i><span>Events</span></div>
-                        <div class="brand-logo" aria-hidden="true"><i class="fas fa-crown"></i><span>Premium Serv</span></div>
-                    </div>
-                </div>
+                <!-- DUPLICATE set for seamless loop (aria-hidden) -->
+                <div class="brand-logo" aria-hidden="true"><span>Pro Creators</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Ready to Post</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Storytelling</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>High Quality</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Shot on iPhone</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Premium Exp</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Creative Tech</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Corp Events</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Store Opening</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Car Delivery</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Family Gather</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Social Reels</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Content</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>UGC Videos</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Events</span></div>
+                <div class="brand-logo" aria-hidden="true"><span>Premium Serv</span></div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- DECORATION LINE - RIGHT TO LEFT SCROLL -->
         <div class="marq">
@@ -519,402 +519,408 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
         </section>
 
 
-        <!-- ============================================================
+      <!-- ============================================================
 GUARANTEE - WITH 6 POINTS
 ============================================================ -->
-        <section class="guarantee-section" aria-label="Our guarantee">
-            <div class="guarantee-heading">
-                <h2>Every Celebration Deserves a Cinematic Story.</h2>
+<section class="guarantee-section" aria-label="Our guarantee">
+    <div class="guarantee-heading">
+        <h2>Every Celebration Deserves a Cinematic Story.</h2>
+    </div>
+    <div class="guarantee-grid">
+        <!-- Left Column - Points 1, 2, 3 -->
+        <div class="guarantee-points left-points">
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">01</div>
+                <h5>Professional Content</h5>
+                <p>High-quality cinematic reels captured with precision and creativity.</p>
             </div>
-            <div class="guarantee-grid">
-                <!-- Left Column - Points 1, 2, 3 -->
-                <div class="guarantee-points left-points">
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">01</div>
-                        <h5>Professional Content</h5>
-                        <p>High-quality cinematic reels captured with precision and creativity.</p>
-                    </div>
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">02</div>
-                        <h5>Fast Delivery</h5>
-                        <p>Receive your reels quickly, so you can share your moments while they're still fresh.</p>
-                    </div>
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">03</div>
-                        <h5>Story-Driven Approach</h5>
-                        <p>We don't just record events—we capture emotions, memories, and experiences.</p>
-                    </div>
-                </div>
-
-                <!-- Center - Image -->
-                <div class="guarantee-image-wrapper">
-                    <div class="guarantee-image">
-                        <img loading="lazy" decoding="async" width="1024" height="1024"
-                            src="images/dream-1.jpg"
-                            srcset="images/dream-1.jpg 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
-                            sizes="(max-width: 1024px) 100vw, 1024px"
-                            alt="dream">
-                    </div>
-                </div>
-
-                <!-- Right Column - Points 4, 5, 6 -->
-                <div class="guarantee-points right-points">
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">04</div>
-                        <h5>Social Media Ready</h5>
-                        <p>Vertical, engaging content optimized for Instagram, Facebook, and more.</p>
-                    </div>
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">05</div>
-                        <h5>Affordable Packages</h5>
-                        <p>Premium-quality event content with packages starting at just ₹1,699.</p>
-                    </div>
-                    <div class="guarantee-point">
-                        <div class="guarantee-point-num">06</div>
-                        <h5>Hassle-Free Experience</h5>
-                        <p>From booking to final delivery, we make the entire process simple and seamless.</p>
-                    </div>
-                </div>
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">02</div>
+                <h5>Fast Delivery</h5>
+                <p>Receive your reels quickly, so you can share your moments while they're still fresh.</p>
             </div>
-        </section>
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">03</div>
+                <h5>Story-Driven Approach</h5>
+                <p>We don't just record events—we capture emotions, memories, and experiences.</p>
+            </div>
+        </div>
 
-       
-        <!-- TESTIMONIALS - 3 COLUMN WITH DIFFERENT SCROLL DIRECTIONS -->
-        <section class="testimonials-section" aria-label="Client feedback">
-            <div class="testimonials-container">
-                <div class="testimonials-top">
-                    <div class="testimonials-heading">
-                        <span class="testimonials-label">Client review</span>
-                        <h2>What our users say.</h2>
-                        <a href="/contact/" class="quote-btn">
-                            <span class="icon">+</span>
-                            <span>Real moments, fast delivery, and reviews from hosts who needed content without the chaos.</span>
-                        </a>
-                    </div>
-                    <div class="trusted-box">
-                        <img src="images/Avatars-2.png" alt="Trusted clients" class="trusted-avatars">
-                        <p>Trusted by industry leaders</p>
-                        <div class="trusted-stars">★★★★★</div>
-                    </div>
-                </div>
+        <!-- Center - Image -->
+        <div class="guarantee-image-wrapper">
+            <div class="guarantee-image">
+                <img loading="lazy" decoding="async" width="1024" height="1024"
+                    src="images/dream-1.jpg"
+                    srcset="images/dream-1.jpg 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    alt="dream">
+            </div>
+        </div>
 
-                <!-- 3 COLUMN GRID WITH DIFFERENT SCROLL DIRECTIONS -->
-                <div class="testimonials-grid">
-                    <!-- Column 1: Bottom to Top Scroll -->
-                    <div class="testimonial-col col-bottom-top">
-                        <div class="scroll-wrapper vertical-scroll">
-                            <div class="scroll-track vertical-track" id="scrollTrack1">
-                                <!-- Card 1 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The team blended in quietly and still captured the room, speeches, and quick candid moments."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">NB</div>
-                                        <div>
-                                            <h4>Neha Batra</h4>
-                                            <span>Corporate dinner</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The reel was ready before dinner ended. It felt personal, clean, and easy."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">AM</div>
-                                        <div>
-                                            <h4>Aarohi Mehta</h4>
-                                            <span>Family celebration</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Every new car drop got content the same day. No waiting, no chasing, and the edit matched our energy."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">DG</div>
-                                        <div>
-                                            <h4>Dheeraj Gupta</h4>
-                                            <span>Car delivery</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 4 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Quick reel for my son's birthday party, and the family group had it before everyone left."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">BP</div>
-                                        <div>
-                                            <h4>Briya Pandey</h4>
-                                            <span>Birthday host</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 5 (Duplicate for seamless loop) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The team blended in quietly and still captured the room, speeches, and quick candid moments."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">NB</div>
-                                        <div>
-                                            <h4>Neha Batra</h4>
-                                            <span>Corporate dinner</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 6 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The reel was ready before dinner ended. It felt personal, clean, and easy."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">AM</div>
-                                        <div>
-                                            <h4>Aarohi Mehta</h4>
-                                            <span>Family celebration</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 7 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Every new car drop got content the same day. No waiting, no chasing, and the edit matched our energy."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">DG</div>
-                                        <div>
-                                            <h4>Dheeraj Gupta</h4>
-                                            <span>Car delivery</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 8 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Quick reel for my son's birthday party, and the family group had it before everyone left."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">BP</div>
-                                        <div>
-                                            <h4>Briya Pandey</h4>
-                                            <span>Birthday host</span>
-                                        </div>
-                                    </div>
+        <!-- Right Column - Points 4, 5, 6 -->
+        <div class="guarantee-points right-points">
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">04</div>
+                <h5>Social Media Ready</h5>
+                <p>Vertical, engaging content optimized for Instagram, Facebook, and more.</p>
+            </div>
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">05</div>
+                <h5>Affordable Packages</h5>
+                <p>Premium-quality event content with packages starting at just ₹1,699.</p>
+            </div>
+            <div class="guarantee-point">
+                <div class="guarantee-point-num">06</div>
+                <h5>Hassle-Free Experience</h5>
+                <p>From booking to final delivery, we make the entire process simple and seamless.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- DECORATION LINE - RIGHT TO LEFT SCROLL -->
+        <div class="marq">
+            <div class="wrapper">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+                <img decoding="async" src="images/Screenshot 2026-08-24 183055.png" alt="" loading="lazy" aria-hidden="true">
+            </div>
+        </div>
+
+
+
+<!-- TESTIMONIALS - 3 COLUMN WITH DIFFERENT SCROLL DIRECTIONS -->
+<section class="testimonials-section" aria-label="Client feedback">
+    <div class="testimonials-container">
+        <!-- Centered heading and paragraph (Trusted box removed) -->
+        <div class="testimonials-header">
+            <h2>What our users say.</h2>
+            <p class="testimonials-subtext">Real moments, fast delivery, and reviews from hosts who needed content without the chaos.</p>
+        </div>
+
+        <!-- 3 COLUMN GRID WITH DIFFERENT SCROLL DIRECTIONS -->
+        <div class="testimonials-grid">
+            <!-- Column 1: Bottom to Top Scroll -->
+            <div class="testimonial-col col-bottom-top">
+                <div class="scroll-wrapper vertical-scroll">
+                    <div class="scroll-track vertical-track" id="scrollTrack1">
+                        <!-- Card 1 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The team blended in quietly and still captured the room, speeches, and quick candid moments.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">NB</div>
+                                <div>
+                                    <h4>Neha Batra</h4>
+                                    <span>Corporate dinner</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Column 2: Top to Bottom Scroll -->
-                    <div class="testimonial-col col-top-bottom">
-                        <div class="scroll-wrapper vertical-scroll">
-                            <div class="scroll-track vertical-track reverse" id="scrollTrack2">
-                                <!-- Card 1 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Professional, quick, and the reel was up before the campaign team even started asking who shot it."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">RJ</div>
-                                        <div>
-                                            <h4>Rahul Jain</h4>
-                                            <span>Campaign shoot</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The creator knew exactly where to stand and what details mattered. Our wedding clips felt polished without feeling staged."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">SK</div>
-                                        <div>
-                                            <h4>Sana Kapoor</h4>
-                                            <span>Wedding event</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Same-day reel, zero hassle, and we were already booking the next one before the launch week closed."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">NR</div>
-                                        <div>
-                                            <h4>Nikhil Rao</h4>
-                                            <span>Store launch</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 4 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"They caught small reactions we missed in the moment. The reels felt warm, not forced."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">MT</div>
-                                        <div>
-                                            <h4>Megha Trivedi</h4>
-                                            <span>Haldi ceremony</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 5 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Professional, quick, and the reel was up before the campaign team even started asking who shot it."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">RJ</div>
-                                        <div>
-                                            <h4>Rahul Jain</h4>
-                                            <span>Campaign shoot</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 6 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The creator knew exactly where to stand and what details mattered. Our wedding clips felt polished without feeling staged."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">SK</div>
-                                        <div>
-                                            <h4>Sana Kapoor</h4>
-                                            <span>Wedding event</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 7 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Same-day reel, zero hassle, and we were already booking the next one before the launch week closed."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">NR</div>
-                                        <div>
-                                            <h4>Nikhil Rao</h4>
-                                            <span>Store launch</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 8 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"They caught small reactions we missed in the moment. The reels felt warm, not forced."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">MT</div>
-                                        <div>
-                                            <h4>Megha Trivedi</h4>
-                                            <span>Haldi ceremony</span>
-                                        </div>
-                                    </div>
+                        <!-- Card 2 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The reel was ready before dinner ended. It felt personal, clean, and easy.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">AM</div>
+                                <div>
+                                    <h4>Aarohi Mehta</h4>
+                                    <span>Family celebration</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Column 3: Bottom to Top Scroll -->
-                    <div class="testimonial-col col-bottom-top">
-                        <div class="scroll-wrapper vertical-scroll">
-                            <div class="scroll-track vertical-track" id="scrollTrack3">
-                                <!-- Card 1 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Our event needed content quickly. Moment gave us clean edits before the crowd had even left."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">AA</div>
-                                        <div>
-                                            <h4>Arjun Arora</h4>
-                                            <span>Engagement</span>
-                                        </div>
-                                    </div>
+                        <!-- Card 3 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Every new car drop got content the same day. No waiting, no chasing, and the edit matched our energy.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">DG</div>
+                                <div>
+                                    <h4>Dheeraj Gupta</h4>
+                                    <span>Car delivery</span>
                                 </div>
-                                <!-- Card 2 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The team felt like an organic extension of our firm, and they're our go-to collaborator for creative projects."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">LJ</div>
-                                        <div>
-                                            <h4>Lilian Jitters</h4>
-                                            <span>Birthday host</span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Quick reel for my son's birthday party, and the family group had it before everyone left.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">BP</div>
+                                <div>
+                                    <h4>Briya Pandey</h4>
+                                    <span>Birthday host</span>
                                 </div>
-                                <!-- Card 3 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"They captured the essence of our store launch perfectly. The reels drove more footfall than we expected."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">PS</div>
-                                        <div>
-                                            <h4>Priya Sharma</h4>
-                                            <span>Store launch</span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 (Duplicate for seamless loop) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The team blended in quietly and still captured the room, speeches, and quick candid moments.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">NB</div>
+                                <div>
+                                    <h4>Neha Batra</h4>
+                                    <span>Corporate dinner</span>
                                 </div>
-                                <!-- Card 4 -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Our wedding highlights were ready within hours. Friends and family couldn't stop sharing them."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">VS</div>
-                                        <div>
-                                            <h4>Vikram Singh</h4>
-                                            <span>Wedding event</span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The reel was ready before dinner ended. It felt personal, clean, and easy.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">AM</div>
+                                <div>
+                                    <h4>Aarohi Mehta</h4>
+                                    <span>Family celebration</span>
                                 </div>
-                                <!-- Card 5 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Our event needed content quickly. Moment gave us clean edits before the crowd had even left."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">AA</div>
-                                        <div>
-                                            <h4>Arjun Arora</h4>
-                                            <span>Engagement</span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- Card 7 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Every new car drop got content the same day. No waiting, no chasing, and the edit matched our energy.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">DG</div>
+                                <div>
+                                    <h4>Dheeraj Gupta</h4>
+                                    <span>Car delivery</span>
                                 </div>
-                                <!-- Card 6 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"The team felt like an organic extension of our firm, and they're our go-to collaborator for creative projects."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">LJ</div>
-                                        <div>
-                                            <h4>Lilian Jitters</h4>
-                                            <span>Birthday host</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 7 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"They captured the essence of our store launch perfectly. The reels drove more footfall than we expected."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">PS</div>
-                                        <div>
-                                            <h4>Priya Sharma</h4>
-                                            <span>Store launch</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 8 (Duplicate) -->
-                                <div class="review-card">
-                                    <div class="review-rating">★★★★★</div>
-                                    <p class="review-text">"Our wedding highlights were ready within hours. Friends and family couldn't stop sharing them."</p>
-                                    <div class="review-user">
-                                        <div class="avatar-placeholder">VS</div>
-                                        <div>
-                                            <h4>Vikram Singh</h4>
-                                            <span>Wedding event</span>
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                        <!-- Card 8 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Quick reel for my son's birthday party, and the family group had it before everyone left.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">BP</div>
+                                <div>
+                                    <h4>Briya Pandey</h4>
+                                    <span>Birthday host</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
+            <!-- Column 2: Top to Bottom Scroll -->
+            <div class="testimonial-col col-top-bottom">
+                <div class="scroll-wrapper vertical-scroll">
+                    <div class="scroll-track vertical-track reverse" id="scrollTrack2">
+                        <!-- Card 1 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Professional, quick, and the reel was up before the campaign team even started asking who shot it.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">RJ</div>
+                                <div>
+                                    <h4>Rahul Jain</h4>
+                                    <span>Campaign shoot</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The creator knew exactly where to stand and what details mattered. Our wedding clips felt polished without feeling staged.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">SK</div>
+                                <div>
+                                    <h4>Sana Kapoor</h4>
+                                    <span>Wedding event</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Same-day reel, zero hassle, and we were already booking the next one before the launch week closed.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">NR</div>
+                                <div>
+                                    <h4>Nikhil Rao</h4>
+                                    <span>Store launch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">They caught small reactions we missed in the moment. The reels felt warm, not forced.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">MT</div>
+                                <div>
+                                    <h4>Megha Trivedi</h4>
+                                    <span>Haldi ceremony</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Professional, quick, and the reel was up before the campaign team even started asking who shot it.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">RJ</div>
+                                <div>
+                                    <h4>Rahul Jain</h4>
+                                    <span>Campaign shoot</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The creator knew exactly where to stand and what details mattered. Our wedding clips felt polished without feeling staged.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">SK</div>
+                                <div>
+                                    <h4>Sana Kapoor</h4>
+                                    <span>Wedding event</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 7 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Same-day reel, zero hassle, and we were already booking the next one before the launch week closed.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">NR</div>
+                                <div>
+                                    <h4>Nikhil Rao</h4>
+                                    <span>Store launch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 8 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">They caught small reactions we missed in the moment. The reels felt warm, not forced.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">MT</div>
+                                <div>
+                                    <h4>Megha Trivedi</h4>
+                                    <span>Haldi ceremony</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: Bottom to Top Scroll -->
+            <div class="testimonial-col col-bottom-top">
+                <div class="scroll-wrapper vertical-scroll">
+                    <div class="scroll-track vertical-track" id="scrollTrack3">
+                        <!-- Card 1 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Our event needed content quickly. Moment gave us clean edits before the crowd had even left.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">AA</div>
+                                <div>
+                                    <h4>Arjun Arora</h4>
+                                    <span>Engagement</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The team felt like an organic extension of our firm, and they're our go-to collaborator for creative projects.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">LJ</div>
+                                <div>
+                                    <h4>Lilian Jitters</h4>
+                                    <span>Birthday host</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">They captured the essence of our store launch perfectly. The reels drove more footfall than we expected.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">PS</div>
+                                <div>
+                                    <h4>Priya Sharma</h4>
+                                    <span>Store launch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Our wedding highlights were ready within hours. Friends and family couldn't stop sharing them.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">VS</div>
+                                <div>
+                                    <h4>Vikram Singh</h4>
+                                    <span>Wedding event</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Our event needed content quickly. Moment gave us clean edits before the crowd had even left.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">AA</div>
+                                <div>
+                                    <h4>Arjun Arora</h4>
+                                    <span>Engagement</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">The team felt like an organic extension of our firm, and they're our go-to collaborator for creative projects.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">LJ</div>
+                                <div>
+                                    <h4>Lilian Jitters</h4>
+                                    <span>Birthday host</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 7 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">They captured the essence of our store launch perfectly. The reels drove more footfall than we expected.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">PS</div>
+                                <div>
+                                    <h4>Priya Sharma</h4>
+                                    <span>Store launch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 8 (Duplicate) -->
+                        <div class="review-card">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">Our wedding highlights were ready within hours. Friends and family couldn't stop sharing them.</p>
+                            <div class="review-user">
+                                <div class="avatar-placeholder">VS</div>
+                                <div>
+                                    <h4>Vikram Singh</h4>
+                                    <span>Wedding event</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
          <!-- FAQ -->
         <section class="faq-section" aria-label="Frequently asked questions">
             <div class="faq-container">
