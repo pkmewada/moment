@@ -389,87 +389,173 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                     </div>
                 </div>
 
-                <div class="contact-right">
-                    <h3>Share your vision, date, & venue.</h3>
-                    <p>We'll turn into memories you'll cherish forever.</p>
+               <div class="contact-right">
 
-                    <form id="contactForm" novalidate>
-                        <div class="form-row">
-                            <!-- Name -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-name">Your name *</label>
-                                    <input type="text" id="cf-name" name="your-name" placeholder="Full name" required>
-                                </p>
-                            </div>
+    <h3>Share your vision, date, & venue.</h3>
 
-                            <!-- Email -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-email">Email *</label>
-                                    <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
-                                </p>
-                            </div>
+    <p>We'll turn into memories you'll cherish forever.</p>
 
-                            <!-- Phone -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-phone">Phone *</label>
-                                    <input type="tel" id="cf-phone" name="phone" placeholder="+91 90000 00000" required>
-                                </p>
-                            </div>
+    <form id="contactForm" novalidate>
 
-                            <!-- Event Type -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-event-type">Event type *</label>
-                                    <select id="cf-event-type" name="event-type" required>
-                                        <option value="">Select event</option>
-                                        <option value="Birthday">Birthday</option>
-                                        <option value="Wedding Function">Wedding Function</option>
-                                        <option value="Store Launch">Store Launch</option>
-                                        <option value="Product Moment">Product Moment</option>
-                                        <option value="Others">Others</option>
-                                    </select>
-                                </p>
-                            </div>
+        <div class="form-row">
 
-                            <!-- City -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-city">City *</label>
-                                    <input type="text" id="cf-city" name="city" placeholder="Your city" required>
-                                </p>
-                            </div>
+            <!-- Name -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-name">Your name *</label>
 
-                            <!-- Event Date -->
-                            <div class="form-group">
-                                <p>
-                                    <label for="cf-date">Event date *</label>
-                                    <input type="date" id="cf-date" name="event-date" required>
-                                </p>
-                            </div>
+                    <input
+                        type="text"
+                        id="cf-name"
+                        name="your-name"
+                        placeholder="Full name"
+                        required
+                    >
+                </p>
+            </div>
 
-                            <!-- Message -->
-                            <div class="form-group full">
-                                <p>
-                                    <label for="cf-message">Anything else?</label>
-                                    <textarea id="cf-message" name="message" placeholder="Share timing, venue, or references"></textarea>
-                                </p>
-                            </div>
 
-                            <!-- Submit -->
-                            <div class="form-group full">
-                                <p>
-                                    <button type="submit" class="submit-btn">
-                                        <i aria-hidden="true">+</i>
-                                        <span>Send Booking Request</span>
-                                    </button>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <!-- Email -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-email">Email *</label>
+
+                    <input
+                        type="email"
+                        id="cf-email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </p>
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-phone">Phone *</label>
+
+                    <input
+                        type="tel"
+                        id="cf-phone"
+                        name="phone"
+                        placeholder="+91 90000 00000"
+                        required
+                    >
+                </p>
+            </div>
+
+
+            <!-- Event Type -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-event-type">Event type *</label>
+
+                    <select
+                        id="cf-event-type"
+                        name="event-type"
+                        required
+                    >
+                        <option value="">Select event</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Wedding Function">Wedding Function</option>
+                        <option value="Store Launch">Store Launch</option>
+                        <option value="Product Moment">Product Moment</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </p>
+            </div>
+
+
+            <!-- City -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-city">City *</label>
+
+                    <input
+                        type="text"
+                        id="cf-city"
+                        name="city"
+                        value="Indore"
+                        readonly
+                        required
+                    >
+                </p>
+            </div>
+
+
+            <!-- Event Date -->
+            <div class="form-group">
+                <p>
+                    <label for="cf-date">Event date *</label>
+
+                    <input
+                        type="date"
+                        id="cf-date"
+                        name="event-date"
+                        required
+                    >
+                </p>
+            </div>
+
+
+            <!-- Address / Venue -->
+            <div class="form-group full">
+                <p>
+                    <label for="cf-address">Venue / Address *</label>
+
+                    <input
+                        type="text"
+                        id="cf-address"
+                        name="address"
+                        placeholder="Enter venue or complete address"
+                        required
+                    >
+                </p>
+            </div>
+
+
+            <!-- Message -->
+            <div class="form-group full">
+                <p>
+                    <label for="cf-message">Anything else?</label>
+
+                    <textarea
+                        id="cf-message"
+                        name="message"
+                        placeholder="Share timing, venue, or references"
+                    ></textarea>
+                </p>
+            </div>
+
+
+            <!-- Submit -->
+            <div class="form-group full">
+                <p>
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        <i aria-hidden="true">+</i>
+
+                        <span>Send Booking Request</span>
+                    </button>
+
+                </p>
+            </div>
+
+        </div>
+
+    </form>
+
+    <!-- Response Message -->
+    <div id="bookingMessage"></div>
+
+</div>
+
+
             </div>
         </section>
 
@@ -1014,3 +1100,107 @@ GUARANTEE - WITH 6 POINTS
 <?php
 require_once "include/footer.php";
 ?>
+
+<script>
+const dateInput = document.getElementById("cf-date");
+
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, "0");
+const day = String(today.getDate()).padStart(2, "0");
+
+dateInput.min = `${year}-${month}-${day}`;
+</script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const button = form.querySelector(".submit-btn");
+    const buttonText = button.querySelector("span");
+    const messageBox = document.getElementById("bookingMessage");
+
+    const requiredFields = [
+        { key: "your-name", selector: '[name="your-name"]' },
+        { key: "email", selector: '[name="email"]' },
+        { key: "phone", selector: '[name="phone"]' },
+        { key: "event-type", selector: '[name="event-type"]' },
+        { key: "city", selector: '[name="city"]' },
+        { key: "address", selector: '[name="address"]' },
+        { key: "event-date", selector: '[name="event-date"]' }
+    ];
+
+    const payload = new FormData();
+    let hasMissingField = false;
+
+    requiredFields.forEach(function(field) {
+        const input = form.querySelector(field.selector);
+        const value = input ? input.value.trim() : "";
+
+        if (!input || !value) {
+            hasMissingField = true;
+            return;
+        }
+
+        payload.append(field.key, value);
+    });
+
+    const message = form.querySelector('[name="message"]');
+    if (message) {
+        payload.append('message', message.value.trim());
+    }
+
+    if (hasMissingField) {
+        messageBox.textContent = "Please fill all required fields.";
+        messageBox.className = "booking-error";
+        form.reportValidity();
+        return;
+    }
+
+    button.disabled = true;
+    buttonText.textContent = "Sending...";
+    messageBox.textContent = "";
+    messageBox.className = "";
+
+    fetch("api/save_booking.php", {
+        method: "POST",
+        body: payload
+    })
+    .then(async function(response) {
+        const contentType = response.headers.get("content-type") || "";
+
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(text || "Request failed.");
+        }
+
+        if (!contentType.includes("application/json")) {
+            const text = await response.text();
+            throw new Error(text || "Unexpected server response.");
+        }
+
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            messageBox.textContent = data.message;
+            messageBox.className = "booking-success";
+            form.reset();
+            document.getElementById("cf-city").value = "Indore";
+        } else {
+            messageBox.textContent = data.message;
+            messageBox.className = "booking-error";
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        messageBox.textContent = error && error.message ? error.message : "Something went wrong. Please try again.";
+        messageBox.className = "booking-error";
+    })
+    .finally(() => {
+        button.disabled = false;
+        buttonText.textContent = "Send Booking Request";
+    });
+});
+</script>

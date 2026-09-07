@@ -406,20 +406,6 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
 
 
 
-    var contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
-            // TODO: replace with a real fetch() call to your backend
-            alert('Thanks! Your message has been received.');
-            contactForm.reset();
-        });
-    }
-
     /* -----------------------------------------------------
        NEWSLETTER FORM
     ----------------------------------------------------- */
