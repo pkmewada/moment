@@ -148,6 +148,7 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
 
         counters.forEach(function (el) { counterObserver.observe(el); });
     }
+    
     /* -----------------------------------------------------
            CURVED SLIDER (3D drag carousel) - VIDEO VERSION
            (Videos continue playing without pause - Optimized)
@@ -170,7 +171,6 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             'vedios/f.mp4',
             'vedios/g.mp4',
             'vedios/h.mp4',
-            'vedios/i.mp4',
             'vedios/j.mp4',
             'vedios/k.mp4',
             'vedios/l.mp4',
@@ -425,3 +425,5 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
     }
 
 })();
+
+

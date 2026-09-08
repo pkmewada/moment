@@ -518,7 +518,7 @@ h6 {
 @media (max-width: 640px) {
     .hero-title {
         font-size: 26px;
-        line-height: 0.8;
+        line-height: 0.4;
         font-weight: 900;
         color: #050414;
     }
@@ -533,7 +533,7 @@ h6 {
 
     .hero-desc {
         max-width: 456px;
-        margin: 13px auto 0;
+        margin: -15px auto 0;
         font-size: 18px;
         line-height: 27px;
         color: #050414;
@@ -818,7 +818,8 @@ h6 {
     animation-play-state: paused;
 }
 
-/* Responsive */
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 1400px) {
     .wrapper img {
         width: 1000px;
@@ -831,6 +832,12 @@ h6 {
         width: 700px;
         height: 16px;
     }
+
+    .brands-title h4 {
+        font-size: 28px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
 }
 
 @media (max-width: 768px) {
@@ -840,7 +847,15 @@ h6 {
 
     .wrapper img {
         width: 500px;
-        height: 14px;
+        height: 16px;
+    }
+
+    .brands-title h4 {
+        width: 700PX;
+        font-size: 26px;
+        font-weight: 700;
+        white-space: nowrap;
+        line-height: 1.1;
     }
 }
 
@@ -851,10 +866,16 @@ h6 {
 
     .wrapper img {
         width: 300px;
-        height: 12px;
+        height: 15px;
+    }
+
+    .brands-title h4 {
+        font-size: 22px;
+        font-weight: 700;
+        white-space: nowrap;
+        line-height: 1;
     }
 }
-
 /* ============================================================
    GLOBAL BRANDS
    ============================================================ */
@@ -1045,8 +1066,8 @@ h6 {
     }
 
     .brand-logo span {
-        font-size: 10px;
-        max-width: 65px;
+        font-size: 15px;
+        max-width: 90px;
     }
 
     .brands-track {
@@ -2797,35 +2818,23 @@ TESTIMONIALS - 3 COLUMN WITH VERTICAL SCROLL
 }
 
 /* ============================================================
-RESPONSIVE
+   MOBILE ONLY - 1 COLUMN / BOTTOM TO TOP
+   DESKTOP & TABLET UNCHANGED
 ============================================================ */
-@media (max-width: 991px) {
-    .testimonials-section {
-        padding: 65px 0;
-    }
 
-    .testimonials-container {
-        padding: 0 16px; /* Reduced padding */
-    }
 
-    .testimonials-grid {
-        grid-template-columns: 1fr 1fr;
-        height: 450px;
-        gap: 20px;
-    }
+@media (max-width: 480px) {
 
-    .testimonial-col:last-child {
-        display: none;
-    }
-}
-
-@media (max-width: 650px) {
     .testimonials-section {
         padding: 55px 0;
     }
 
     .testimonials-container {
-        padding: 0 12px; /* Reduced padding */
+        padding: 0 12px;
+    }
+
+    .testimonials-header {
+        margin-bottom: 30px;
     }
 
     .testimonials-label {
@@ -2843,66 +2852,125 @@ RESPONSIVE
         padding: 0 8px;
     }
 
+
+    /* =========================================
+       ONE COLUMN ONLY
+    ========================================= */
+
     .testimonials-grid {
-        grid-template-columns: 1fr 1fr;
-        height: 400px;
-        gap: 15px;
+        grid-template-columns: 1fr;
+        height: 600px;
+        gap: 0;
+        margin: 25px 0 30px;
     }
 
-    .review-card {
-        padding: 18px 16px 16px;
+
+    /* Hide column 2 and column 3 */
+    .testimonials-grid .testimonial-col:nth-child(2),
+    .testimonials-grid .testimonial-col:nth-child(3) {
+        display: none;
     }
 
-    .review-text {
-        font-size: 14px;
+
+    /* Show only first column */
+    .testimonials-grid .testimonial-col:first-child {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* =========================================
+       SCROLL AREA
+    ========================================= */
+
+    .testimonial-col:first-child .scroll-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    /* =========================================
+       BOTTOM → TOP
+    ========================================= */
+
+    .testimonial-col:first-child .vertical-track {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 5px 0;
+
+        animation: mobileBottomToTop 22s linear infinite;
+        will-change: transform;
+    }
+
+
+    /* Keep animation running */
+    .testimonial-col:first-child .vertical-track:hover {
+        animation-play-state: paused;
+    }
+
+
+    /* =========================================
+       REVIEW CARD
+    ========================================= */
+
+    .testimonial-col:first-child .review-card {
+        width: 100%;
+        min-height: 175px;
+        padding: 16px 14px 14px;
+        border-radius: 16px;
+    }
+
+    .testimonial-col:first-child .review-text {
+        font-size: 13px;
         line-height: 1.5;
     }
 
-    .review-user h4 {
-        font-size: 13px;
+    .testimonial-col:first-child .review-rating {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        margin-bottom: 8px;
     }
 
-    .review-user span {
-        font-size: 10px;
+    .testimonial-col:first-child .review-user {
+        gap: 10px;
+        padding-top: 12px;
+        margin-top: 12px;
     }
 
-    .avatar-placeholder {
+    .testimonial-col:first-child .avatar-placeholder {
         width: 34px;
         height: 34px;
         font-size: 10px;
     }
-}
 
-@media (max-width: 480px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        height: 600px;
-        gap: 12px;
-    }
-
-    .testimonial-col:last-child {
-        display: none;
-    }
-
-    .review-card {
-        padding: 16px 14px 14px;
-    }
-
-    .review-text {
+    .testimonial-col:first-child .review-user h4 {
         font-size: 13px;
-        line-height: 1.5;
     }
 
-    .review-rating {
-        font-size: 12px;
-    }
-
-    .vertical-track {
-        gap: 14px;
+    .testimonial-col:first-child .review-user span {
+        font-size: 10px;
     }
 }
 
 
+/* ============================================================
+   MOBILE CONTINUOUS BOTTOM → TOP ANIMATION
+============================================================ */
+
+@keyframes mobileBottomToTop {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+
+}
 
 /* ============================================================
    FOOTER
@@ -2914,7 +2982,7 @@ RESPONSIVE
     overflow: hidden;
     position: relative;
     border-radius: 1cm;
-    margin:70px 70px 70px 70px;
+    margin:10px 10px 10px 10px;
 }
 
 .container {
