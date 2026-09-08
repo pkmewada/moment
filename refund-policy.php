@@ -20,7 +20,7 @@ REFUND POLICY HERO
             </p>
 
             <h1 class="hero-title" id="refund-title">
-                Refund &amp; Cancellation Policy
+                Refund Policy
             </h1>
 
             <p class="hero-text">
