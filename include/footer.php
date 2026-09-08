@@ -85,7 +85,7 @@
                  <div class="footer-contact-group">
                     <strong>Contact:</strong>
 
-                    <a href="tel:+919183490098">
+                    <a class ="contact-cl" href="tel:+919183490098">
                         +91 9183490098
                     </a>
 

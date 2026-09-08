@@ -392,7 +392,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                         <!-- Name -->
                         <div class="form-group">
                             <p>
-                                <label for="cf-name">Your name</label>
+                                <label for="cf-name">Your name*</label>
 
                                 <input
                                     type="text"
@@ -422,7 +422,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                         <!-- Phone -->
                         <div class="form-group">
                             <p>
-                                <label for="cf-phone">Phone</label>
+                                <label for="cf-phone">Phone*</label>
 
                                 <input
                                     type="tel"
@@ -473,7 +473,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                         <!-- Event Date -->
                         <div class="form-group">
                             <p>
-                                <label for="cf-date">Event date</label>
+                                <label for="cf-date">Event date*</label>
 
                                 <input
                                     type="date"

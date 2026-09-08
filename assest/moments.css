@@ -3246,6 +3246,15 @@ TESTIMONIALS - 3 COLUMN WITH VERTICAL SCROLL
 }
 
 
+.contact-cl{
+    color:#00d8e4 !important;
+}
+
+.contact-cl:hover {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+
 /* ============================================================
    MOMENTS WORDMARK
 ============================================================ */
@@ -3397,6 +3406,23 @@ TESTIMONIALS - 3 COLUMN WITH VERTICAL SCROLL
 
 @media (max-width: 600px) {
 
+    .wordmark-wrapper .letter {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: rotateX(0deg) scale(1);
+
+    animation:
+        flipReverse 6s ease forwards infinite alternate !important; 
+
+    transform-origin: center;
+
+    backface-visibility: visible;
+
+    transition: color 0.3s ease;
+}
+
     .site-footer {
         padding: 45px 0 20px;
     }
@@ -3465,6 +3491,23 @@ TESTIMONIALS - 3 COLUMN WITH VERTICAL SCROLL
 ============================================================ */
 
 @media (max-width: 420px) {
+
+    .wordmark-wrapper .letter {
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: rotateX(0deg) scale(1);
+
+    animation:
+        flipReverse 6s ease forwards infinite alternate !important;
+
+    transform-origin: center;
+
+    backface-visibility: visible;
+
+    transition: color 0.3s ease;
+}
 
     .footer-right {
         grid-template-columns: 1fr;
