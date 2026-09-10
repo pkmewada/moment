@@ -28,17 +28,13 @@ $message = trim($_POST["message"] ?? "");
 
 if (
     $name === "" ||
-    $email === "" ||
     $phone === "" ||
-    $event_type === "" ||
-    $city === "" ||
-    $address === "" ||
     $event_date === ""
 ) {
     send_json(false, "Please fill all required fields.");
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if ($email !== "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_json(false, "Please enter a valid email address.");
 }
 

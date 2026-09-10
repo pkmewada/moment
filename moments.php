@@ -413,8 +413,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                                     type="email"
                                     id="cf-email"
                                     name="email"
-                                    placeholder="you@example.com"
-                                    required>
+                                    placeholder="you@example.com">
                             </p>
                         </div>
 
@@ -442,7 +441,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                                 <select
                                     id="cf-event-type"
                                     name="event-type"
-                                    required>
+                                    >
                                     <option value="">Select event</option>
                                     <option value="Birthday">Birthday</option>
                                     <option value="Wedding Function">Wedding Function</option>
@@ -464,8 +463,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                                     id="cf-city"
                                     name="city"
                                     value="Indore"
-                                    readonly
-                                    required>
+                                    readonly>
                             </p>
                         </div>
 
@@ -493,8 +491,7 @@ CONTACT - UPDATED WITH NEW FIELDS (BLACK BACKGROUND)
                                     type="text"
                                     id="cf-address"
                                     name="address"
-                                    placeholder="Enter venue or complete address"
-                                    required>
+                                    placeholder="Enter venue or complete address">
                             </p>
                         </div>
 
@@ -1107,24 +1104,8 @@ require_once "include/footer.php";
                 selector: '[name="your-name"]'
             },
             {
-                key: "email",
-                selector: '[name="email"]'
-            },
-            {
                 key: "phone",
                 selector: '[name="phone"]'
-            },
-            {
-                key: "event-type",
-                selector: '[name="event-type"]'
-            },
-            {
-                key: "city",
-                selector: '[name="city"]'
-            },
-            {
-                key: "address",
-                selector: '[name="address"]'
             },
             {
                 key: "event-date",
@@ -1145,6 +1126,13 @@ require_once "include/footer.php";
             }
 
             payload.append(field.key, value);
+        });
+
+        ["email", "event-type", "city", "address"].forEach(function(key) {
+            const input = form.querySelector('[name="' + key + '"]');
+            if (input && input.value.trim()) {
+                payload.append(key, input.value.trim());
+            }
         });
 
         const message = form.querySelector('[name="message"]');
