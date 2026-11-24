@@ -11,126 +11,6 @@ function send_json($success, $message, $statusCode = null) {
     exit;
 }
 
-function smtp_expect($connection, $expectedCodes) {
-    $response = "";
-    while (($line = fgets($connection, 515)) !== false) {
-        $response .= $line;
-        if (strlen($line) < 4 || $line[3] === " ") {
-            break;
-        }
-    }
-
-    $code = (int) substr($response, 0, 3);
-    if (!in_array($code, $expectedCodes, true)) {
-        throw new RuntimeException("SMTP server returned code " . $code . ".");
-    }
-
-    return $response;
-}
-
-function smtp_command($connection, $command, $expectedCodes) {
-    if (fwrite($connection, $command . "\r\n") === false) {
-        throw new RuntimeException("Could not write SMTP command.");
-    }
-
-    return smtp_expect($connection, $expectedCodes);
-}
-
-function send_smtp_email($recipient, $subject, $plainBody, $htmlBody, $replyTo) {
-    $host = getenv("MOMENTS_SMTP_HOST") ?: "smtp.hostinger.com";
-    $port = (int) (getenv("MOMENTS_SMTP_PORT") ?: 465);
-    $encryption = strtolower(getenv("MOMENTS_SMTP_ENCRYPTION") ?: "ssl");
-    $username = getenv("MOMENTS_SMTP_USERNAME") ?: "connect@mqlus.in";
-    $password = getenv("MOMENTS_SMTP_PASSWORD");
-    $fromAddress = getenv("MOMENTS_SMTP_FROM") ?: $username;
-
-    if ($password === false || $password === "") {
-        throw new RuntimeException("SMTP password is not configured.");
-    }
-    if (
-        $port < 1 || $port > 65535 ||
-        !in_array($encryption, ["ssl", "tls"], true) ||
-        !filter_var($username, FILTER_VALIDATE_EMAIL) ||
-        !filter_var($fromAddress, FILTER_VALIDATE_EMAIL) ||
-        !filter_var($recipient, FILTER_VALIDATE_EMAIL) ||
-        preg_match('/[\r\n]/', $host)
-    ) {
-        throw new RuntimeException("SMTP settings are invalid.");
-    }
-
-    $target = ($encryption === "ssl" ? "ssl://" : "") . $host . ":" . $port;
-    $connection = @stream_socket_client(
-        $target,
-        $errorNumber,
-        $errorMessage,
-        15,
-        STREAM_CLIENT_CONNECT,
-        stream_context_create(["ssl" => [
-            "verify_peer" => true,
-            "verify_peer_name" => true,
-            "peer_name" => $host
-        ]])
-    );
-
-    if (!$connection) {
-        throw new RuntimeException("Could not connect to SMTP server.");
-    }
-
-    stream_set_timeout($connection, 15);
-
-    try {
-        smtp_expect($connection, [220]);
-        smtp_command($connection, "EHLO momentsbymqlus.com", [250]);
-
-        if ($encryption === "tls") {
-            smtp_command($connection, "STARTTLS", [220]);
-            if (!stream_socket_enable_crypto($connection, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
-                throw new RuntimeException("Could not establish SMTP TLS.");
-            }
-            smtp_command($connection, "EHLO momentsbymqlus.com", [250]);
-        }
-
-        smtp_command($connection, "AUTH LOGIN", [334]);
-        smtp_command($connection, base64_encode($username), [334]);
-        smtp_command($connection, base64_encode($password), [235]);
-        smtp_command($connection, "MAIL FROM:<" . $fromAddress . ">", [250]);
-        smtp_command($connection, "RCPT TO:<" . $recipient . ">", [250, 251]);
-        smtp_command($connection, "DATA", [354]);
-
-        $boundary = "moments_" . bin2hex(random_bytes(16));
-        $headers = [
-            "From: Moments by MQlus <" . $fromAddress . ">",
-            "To: " . $recipient,
-            "Subject: " . $subject,
-            "MIME-Version: 1.0",
-            "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\""
-        ];
-        if ($replyTo !== "") {
-            $headers[] = "Reply-To: " . $replyTo;
-        }
-
-        $message = implode("\r\n", $headers) . "\r\n\r\n" .
-            "--" . $boundary . "\r\n" .
-            "Content-Type: text/plain; charset=UTF-8\r\n" .
-            "Content-Transfer-Encoding: base64\r\n\r\n" .
-            chunk_split(base64_encode($plainBody)) .
-            "--" . $boundary . "\r\n" .
-            "Content-Type: text/html; charset=UTF-8\r\n" .
-            "Content-Transfer-Encoding: base64\r\n\r\n" .
-            chunk_split(base64_encode($htmlBody)) .
-            "--" . $boundary . "--\r\n";
-
-        $message = preg_replace('/(?m)^\./', '..', $message);
-        if (fwrite($connection, $message . ".\r\n") === false) {
-            throw new RuntimeException("Could not send SMTP message.");
-        }
-        smtp_expect($connection, [250]);
-        smtp_command($connection, "QUIT", [221]);
-    } finally {
-        fclose($connection);
-    }
-}
-
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     send_json(false, "Invalid request method.");
 }
@@ -218,24 +98,56 @@ $plainBody = "New booking request - Moments by MQlus\r\n\r\n" .
     "Address / venue: " . ($address !== "" ? $address : "Not provided") . "\r\n\r\n" .
     "Additional details:\r\n" . ($message !== "" ? $message : "None");
 
+$boundary = "moments_" . bin2hex(random_bytes(16));
+$mailBody = "--" . $boundary . "\r\n" .
+    "Content-Type: text/plain; charset=UTF-8\r\n" .
+    "Content-Transfer-Encoding: base64\r\n\r\n" .
+    chunk_split(base64_encode($plainBody)) .
+    "--" . $boundary . "\r\n" .
+    "Content-Type: text/html; charset=UTF-8\r\n" .
+    "Content-Transfer-Encoding: base64\r\n\r\n" .
+    chunk_split(base64_encode($htmlBody)) .
+    "--" . $boundary . "--\r\n";
+
 $failedRecipients = [];
 foreach ($recipients as $recipient) {
-    try {
-        send_smtp_email($recipient, $subject, $plainBody, $htmlBody, $email);
-    } catch (RuntimeException $error) {
+    $headers = [
+        "From: Moments by MQlus <connect@mqlus.in>",
+        "To: " . $recipient,
+        "MIME-Version: 1.0",
+        "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\""
+    ];
+
+    if ($email !== "") {
+        $headers[] = "Reply-To: " . $email;
+    }
+
+    set_error_handler(function ($severity, $errorMessage) {
+        if ($severity === E_WARNING && strpos($errorMessage, "mail():") === 0) {
+            error_log($errorMessage);
+            return true;
+        }
+
+        return false;
+    }, E_WARNING);
+
+    $sent = mail($recipient, $subject, $mailBody, implode("\r\n", $headers));
+    restore_error_handler();
+
+    if (!$sent) {
         $failedRecipients[] = $recipient;
-        error_log("Booking SMTP delivery was not accepted for " . $recipient . ": " . $error->getMessage());
+        error_log("Booking email could not be queued for " . $recipient . ".");
     }
 }
 
 if ($failedRecipients) {
     send_json(
         false,
-        "Email delivery is not configured or was rejected. Please try again later or email us at connect@mqlus.in.",
+        "Your request could not be sent by the website mail service. Please try again later or email us at connect@mqlus.in.",
         500
     );
 }
 
-send_json(true, "Booking request accepted by the email server for all recipients.");
+send_json(true, "Booking request queued for all email recipients.");
 
 ?>
