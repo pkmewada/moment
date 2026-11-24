@@ -41,7 +41,8 @@ if (
 
 $recipients = [
     "contact@mqlus.in",
-    "hr@mqlus.in"
+    "hr@mqlus.in",
+    "pp8754352@gmail.com"
 ];
 $subject = "New booking request - Moments by MQlus";
 $escape = function ($value) {
