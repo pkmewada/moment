@@ -120,11 +120,33 @@ if ($email !== "") {
     $headers[] = "Reply-To: " . $email;
 }
 
-if (!mail(implode(", ", $recipients), $subject, $body, implode("\r\n", $headers))) {
-    error_log("Booking notification email could not be sent.");
+$failedRecipients = [];
+foreach ($recipients as $recipient) {
+    $recipientHeaders = $headers;
+    $recipientHeaders[] = "To: " . $recipient;
+
+    set_error_handler(function ($severity, $errorMessage) {
+        if ($severity === E_WARNING && strpos($errorMessage, "mail():") === 0) {
+            error_log($errorMessage);
+            return true;
+        }
+
+        return false;
+    }, E_WARNING);
+
+    $sent = mail($recipient, $subject, $body, implode("\r\n", $recipientHeaders));
+    restore_error_handler();
+
+    if (!$sent) {
+        $failedRecipients[] = $recipient;
+        error_log("Booking notification email could not be sent to " . $recipient . ".");
+    }
+}
+
+if ($failedRecipients) {
     send_json(
         false,
-        "We couldn't send your request right now. Please try again or email us at connect@mqlus.in.",
+        "We couldn't deliver your request to all recipients right now. Please try again or email us at connect@mqlus.in.",
         500
     );
 }

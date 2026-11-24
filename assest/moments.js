@@ -219,7 +219,6 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
         var lastVideoIndex = -1;
         var sliderVisible = !('IntersectionObserver' in window);
         var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         for (var i = 0; i < NUM; i++) {
             var card = document.createElement('div');
             card.className = 'curved-slide';
@@ -235,77 +234,24 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             video.setAttribute('aria-hidden', 'true');
             video.setAttribute('playsinline', '');
             video.setAttribute('webkit-playsinline', '');
+            video.src = videos[i % videos.length];
+
+            video.addEventListener('error', function () {
+                console.error('Unable to load showcase video:', video.currentSrc || video.src);
+            });
 
             card.appendChild(video);
             track.appendChild(card);
             cards.push({
                 element: card,
                 video: video,
-                source: videos[i % videos.length],
-                baseAngle: angle,
-                ready: false,
-                loading: false,
-                blobUrl: null,
-                controller: null
+                baseAngle: angle
             });
         }
 
         function pauseVideos() {
             cards.forEach(function (card) {
                 card.video.pause();
-            });
-        }
-
-        function loadSlide(card) {
-            if (card.ready || card.loading) return;
-
-            card.loading = true;
-            card.element.classList.add('video-loading');
-            card.element.classList.remove('video-error');
-            card.controller = new AbortController();
-
-            fetch(card.source, {
-                cache: 'force-cache',
-                signal: card.controller.signal
-            }).then(function (response) {
-                if (!response.ok) throw new Error('Video request failed.');
-                return response.blob();
-            }).then(function (videoBlob) {
-                if (!card.loading) return;
-
-                card.blobUrl = URL.createObjectURL(videoBlob);
-                card.video.src = card.blobUrl;
-                card.video.load();
-
-                return new Promise(function (resolve, reject) {
-                    card.video.addEventListener('loadeddata', resolve, { once: true });
-                    card.video.addEventListener('error', function () {
-                        reject(new Error('Video could not be decoded.'));
-                    }, { once: true });
-                });
-            }).then(function () {
-                card.ready = true;
-                card.loading = false;
-                card.controller = null;
-                card.element.classList.remove('video-loading');
-                card.element.classList.add('video-ready');
-                if (cards[lastVideoIndex] === card && sliderVisible && !document.hidden) {
-                    card.video.play().catch(function () {});
-                }
-            }).catch(function (error) {
-                card.loading = false;
-                card.controller = null;
-                card.element.classList.remove('video-loading');
-                if (error.name !== 'AbortError') {
-                    if (card.blobUrl) {
-                        URL.revokeObjectURL(card.blobUrl);
-                        card.blobUrl = null;
-                        card.video.removeAttribute('src');
-                        card.video.load();
-                    }
-                    card.element.classList.add('video-error');
-                    console.error('Unable to load showcase video:', card.source, error);
-                }
             });
         }
 
@@ -317,27 +263,9 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
 
             cards.forEach(function (card, index) {
                 if (index === activeIndex) {
-                    if (card.ready) {
-                        if (card.video.paused) card.video.play().catch(function () {});
-                    } else {
-                        loadSlide(card);
-                    }
+                    if (card.video.paused) card.video.play().catch(function () {});
                 } else {
                     card.video.pause();
-                    if (card.loading && card.controller) {
-                        card.controller.abort();
-                    }
-
-                    var distance = Math.abs(card.baseAngle - rotation) % 360;
-                    distance = Math.min(distance, 360 - distance);
-                    if (distance > 30 && card.ready) {
-                        card.video.removeAttribute('src');
-                        card.video.load();
-                        URL.revokeObjectURL(card.blobUrl);
-                        card.blobUrl = null;
-                        card.ready = false;
-                        card.element.classList.remove('video-ready');
-                    }
                 }
             });
         }
@@ -366,15 +294,9 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             if (nearestIndex !== lastVideoIndex) {
                 lastVideoIndex = nearestIndex;
                 syncVideos(nearestIndex);
-            } else if (
-                !cards[nearestIndex].ready &&
-                !cards[nearestIndex].loading &&
-                !cards[nearestIndex].element.classList.contains('video-error')
-            ) {
-                loadSlide(cards[nearestIndex]);
             }
 
-            if (!isDragging && !reducedMotion && cards[nearestIndex].ready) {
+            if (!isDragging && !reducedMotion) {
                 rotation += SPEED;
                 if (rotation > 360) rotation -= 360;
             }
