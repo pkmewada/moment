@@ -3,6 +3,7 @@
 
 header("Content-Type: application/json; charset=utf-8");
 
+// JSON Response
 function send_json($success, $message, $statusCode = null) {
     http_response_code($statusCode ?? ($success ? 200 : 400));
 
@@ -14,6 +15,7 @@ function send_json($success, $message, $statusCode = null) {
     exit;
 }
 
+// Request Method
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     send_json(false, "Invalid request method.");
 }
@@ -28,15 +30,22 @@ $address    = trim($_POST["address"] ?? "");
 $event_date = trim($_POST["event-date"] ?? "");
 $message    = trim($_POST["message"] ?? "");
 
-// Validation
+// Required Fields Validation
 if ($name === "" || $phone === "" || $event_date === "") {
     send_json(false, "Please fill all required fields.");
 }
 
+// Email Validation
 if ($email !== "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_json(false, "Please enter a valid email address.");
 }
 
+// Phone Validation
+if (!preg_match('/^[0-9+\-\s()]{7,20}$/', $phone)) {
+    send_json(false, "Please enter a valid phone number.");
+}
+
+// Date Validation
 if (
     !preg_match('/^\d{4}-\d{2}-\d{2}$/', $event_date) ||
     !checkdate(
@@ -49,15 +58,25 @@ if (
 }
 
 // Email Configuration
-$recipient = "pp8754352@gmail.com";
+$recipients = [
+    "contact@mqlus.in",
+    "hr@mqlus.in"
+];
+
+$recipient = "connect@mqlus.in";
+
 $subject = "New Booking Inquiry | Moments by MQlus";
 
-// Escape user input for HTML
+// Escape HTML Input
 function e($value) {
-    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
+    return htmlspecialchars(
+        $value,
+        ENT_QUOTES | ENT_SUBSTITUTE,
+        "UTF-8"
+    );
 }
 
-// Format date
+// Format Event Date
 $formatted_date = date("d F Y", strtotime($event_date));
 
 // Professional HTML Email
@@ -256,13 +275,15 @@ This is an automated booking notification from your website.
 </html>
 ';
 
-// Headers
+// Email Headers
 $headers = [
     "From: Moments by MQlus <connect@mqlus.in>",
     "MIME-Version: 1.0",
-    "Content-Type: text/html; charset=UTF-8"
+    "Content-Type: text/html; charset=UTF-8",
+    "Bcc: " . implode(",", $recipients)
 ];
 
+// Reply to Customer
 if ($email !== "") {
     $headers[] = "Reply-To: " . $email;
 }
@@ -279,6 +300,7 @@ if (!mail($recipient, $subject, $html, implode("\r\n", $headers))) {
     );
 }
 
+// Success Response
 send_json(true, "Booking request sent successfully!");
 
 ?>
