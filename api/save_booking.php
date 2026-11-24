@@ -169,7 +169,6 @@ $escape = function ($value) {
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 };
 $displayDate = DateTime::createFromFormat("!Y-m-d", $event_date)->format("l, d F Y");
-$logoUrl = "https://momentsbymqlus.com/images/logo2.png";
 $rows = [
     ["Email", $email !== "" ? $email : "Not provided"],
     ["Phone", $phone],
@@ -191,8 +190,8 @@ $htmlBody = '<!doctype html><html><body style="margin:0;padding:0;background:#f2
     '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f2f4f8;padding:32px 12px;"><tr><td align="center">' .
     '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:620px;background:#ffffff;border-radius:16px;overflow:hidden;">' .
     '<tr><td style="padding:26px 32px;background:#090a16;border-bottom:4px solid #00cbd7;">' .
-    '<img src="' . $logoUrl . '" width="180" height="60" alt="Moments by MQlus" style="display:block;width:180px;max-width:100%;height:auto;padding:8px 12px;background:#ffffff;border:0;border-radius:8px;margin:0 0 18px;color:#090a16;">' .
-    '<div style="font-size:11px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:#9da4b8;">New website enquiry</div>' .
+    '<div style="font-size:13px;line-height:1.5;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#ffffff;">MOMENTS <span style="color:#00d8e4;">BY MQLUS</span></div>' .
+    '<div style="margin-top:22px;font-size:11px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:#9da4b8;">New website enquiry</div>' .
     '<div style="margin-top:7px;font-size:25px;line-height:1.25;font-weight:700;color:#ffffff;">Booking request received</div>' .
     '</td></tr><tr><td style="padding:28px 32px 18px;">' .
     '<div style="font-size:14px;line-height:1.6;color:#697386;">A new booking enquiry has arrived. Here are the details:</div>' .

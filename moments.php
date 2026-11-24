@@ -1158,29 +1158,23 @@ require_once "include/footer.php";
             })
             .then(async function(response) {
                 const contentType = response.headers.get("content-type") || "";
-
-                if (!response.ok) {
-                    const text = await response.text();
-                    throw new Error(text || "Request failed.");
-                }
-
                 if (!contentType.includes("application/json")) {
                     const text = await response.text();
                     throw new Error(text || "Unexpected server response.");
                 }
 
-                return response.json();
+                const data = await response.json();
+                if (!response.ok || !data.success) {
+                    throw new Error(data.message || "We couldn't send your request. Please try again.");
+                }
+
+                return data;
             })
             .then(data => {
-                if (data.success) {
-                    messageBox.textContent = data.message;
-                    messageBox.className = "booking-success";
-                    form.reset();
-                    document.getElementById("cf-city").value = "Indore";
-                } else {
-                    messageBox.textContent = data.message;
-                    messageBox.className = "booking-error";
-                }
+                messageBox.textContent = data.message;
+                messageBox.className = "booking-success";
+                form.reset();
+                document.getElementById("cf-city").value = "Indore";
             })
             .catch(error => {
                 console.error(error);
