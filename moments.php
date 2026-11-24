@@ -614,8 +614,8 @@ GUARANTEE - WITH 6 POINTS
             <div class="guarantee-image-wrapper">
                 <div class="guarantee-image">
                     <img loading="lazy" decoding="async" width="1024" height="1024"
-                        src="images/b.png"
-                        srcset="images/b.png 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
+                        src="images/bb.png"
+                        srcset="images/bb.png 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
                         sizes="(max-width: 1024px) 100vw, 1024px"
                         alt="dream">
                 </div>
