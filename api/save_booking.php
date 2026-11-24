@@ -39,11 +39,7 @@ if (
     send_json(false, "Please enter a valid event date.");
 }
 
-$recipients = [
-    "contact@mqlus.in",
-    "hr@mqlus.in",
-    "pp8754352@gmail.com"
-];
+$recipient = "pp8754352@gmail.com";
 $subject = "New booking request - Moments by MQlus";
 $escape = function ($value) {
     return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
@@ -109,38 +105,31 @@ $mailBody = "--" . $boundary . "\r\n" .
     chunk_split(base64_encode($htmlBody)) .
     "--" . $boundary . "--\r\n";
 
-$failedRecipients = [];
-foreach ($recipients as $recipient) {
-    $headers = [
-        "From: Moments by MQlus <connect@mqlus.in>",
-        "To: " . $recipient,
-        "MIME-Version: 1.0",
-        "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\""
-    ];
+$headers = [
+    "From: Moments by MQlus <connect@mqlus.in>",
+    "To: " . $recipient,
+    "MIME-Version: 1.0",
+    "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\""
+];
 
-    if ($email !== "") {
-        $headers[] = "Reply-To: " . $email;
-    }
-
-    set_error_handler(function ($severity, $errorMessage) {
-        if ($severity === E_WARNING && strpos($errorMessage, "mail():") === 0) {
-            error_log($errorMessage);
-            return true;
-        }
-
-        return false;
-    }, E_WARNING);
-
-    $sent = mail($recipient, $subject, $mailBody, implode("\r\n", $headers));
-    restore_error_handler();
-
-    if (!$sent) {
-        $failedRecipients[] = $recipient;
-        error_log("Booking email could not be queued for " . $recipient . ".");
-    }
+if ($email !== "") {
+    $headers[] = "Reply-To: " . $email;
 }
 
-if ($failedRecipients) {
+set_error_handler(function ($severity, $errorMessage) {
+    if ($severity === E_WARNING && strpos($errorMessage, "mail():") === 0) {
+        error_log($errorMessage);
+        return true;
+    }
+
+    return false;
+}, E_WARNING);
+
+$sent = mail($recipient, $subject, $mailBody, implode("\r\n", $headers));
+restore_error_handler();
+
+if (!$sent) {
+    error_log("Booking email could not be queued for " . $recipient . ".");
     send_json(
         false,
         "Your request could not be sent by the website mail service. Please try again later or email us at connect@mqlus.in.",
@@ -148,6 +137,6 @@ if ($failedRecipients) {
     );
 }
 
-send_json(true, "Booking request queued for all email recipients.");
+send_json(true, "Booking request was accepted by the website mail service.");
 
 ?>
