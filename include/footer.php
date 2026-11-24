@@ -142,7 +142,7 @@
 </footer>
 
 
-<script src="assest/moments.js"></script>
+<script src="assest/moments.js?v=<?php echo filemtime(__DIR__ . '/../assest/moments.js'); ?>"></script>
 
 </body>
 </html>

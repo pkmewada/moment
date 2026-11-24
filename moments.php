@@ -34,7 +34,7 @@ require_once "include/header.php";
     <section class="slider-section" aria-label="Video showcase">
         <div class="curved-container">
             <div class="curved-stage">
-                <div class="curved-track" id="sliderTrack"></div>
+                <div class="curved-track" id="sliderTrack" tabindex="0" role="region" aria-label="Featured video carousel. Use arrow keys or drag to explore."></div>
             </div>
         </div>
     </section>

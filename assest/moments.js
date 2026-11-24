@@ -1,6 +1,28 @@
 (function () {
     'use strict';
 
+    var pageLoader = document.getElementById('pageLoader');
+    if (pageLoader) {
+        var loaderRevealTimer;
+        var loaderSafetyTimer;
+
+        function hidePageLoader() {
+            window.clearTimeout(loaderRevealTimer);
+            window.clearTimeout(loaderSafetyTimer);
+            pageLoader.classList.remove('is-visible');
+        }
+
+        if (document.readyState === 'complete') {
+            hidePageLoader();
+        } else {
+            loaderRevealTimer = window.setTimeout(function () {
+                pageLoader.classList.add('is-visible');
+            }, 250);
+            loaderSafetyTimer = window.setTimeout(hidePageLoader, 10000);
+            window.addEventListener('load', hidePageLoader, { once: true });
+        }
+    }
+
     /* -----------------------------------------------------
        MOBILE MENU
     ----------------------------------------------------- */
@@ -150,14 +172,12 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
     }
     
     /* -----------------------------------------------------
-           CURVED SLIDER (3D drag carousel) - VIDEO VERSION
-           (Videos continue playing without pause - Optimized)
-        ----------------------------------------------------- */
+       CURVED SLIDER (3D drag carousel)
+    ----------------------------------------------------- */
     (function () {
         var track = document.getElementById('sliderTrack');
         if (!track) return;
 
-        var NUM = 25;
         var RADIUS = 2000;
         var SPEED = 0.12;
         var THRESHOLD = 50;
@@ -189,12 +209,16 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             'vedios/x.mp4'
         ];
 
+        var NUM = 25;
         var cards = [];
         var rotation = 0;
         var isDragging = false;
         var dragStartX = 0;
         var dragStartRot = 0;
         var animationId = null;
+        var lastVideoIndex = -1;
+        var sliderVisible = !('IntersectionObserver' in window);
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         for (var i = 0; i < NUM; i++) {
             var card = document.createElement('div');
@@ -204,88 +228,185 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             card._baseAngle = angle;
 
             var video = document.createElement('video');
-            video.src = videos[i % videos.length];
-            video.alt = 'slide video';
             video.muted = true;
             video.loop = true;
             video.playsInline = true;
             video.preload = 'metadata';
+            video.setAttribute('aria-hidden', 'true');
             video.setAttribute('playsinline', '');
             video.setAttribute('webkit-playsinline', '');
 
             card.appendChild(video);
             track.appendChild(card);
-            cards.push(card);
+            cards.push({
+                element: card,
+                video: video,
+                source: videos[i % videos.length],
+                baseAngle: angle,
+                ready: false,
+                loading: false,
+                blobUrl: null,
+                controller: null
+            });
         }
 
-        // Preload and play all videos
-        function playAllVideos() {
-            cards.forEach(function (c) {
-                var video = c.querySelector('video');
-                if (video) {
-                    video.play().catch(function (e) {
-                        // Will try again on interaction
-                    });
+        function pauseVideos() {
+            cards.forEach(function (card) {
+                card.video.pause();
+            });
+        }
+
+        function loadSlide(card) {
+            if (card.ready || card.loading) return;
+
+            card.loading = true;
+            card.element.classList.add('video-loading');
+            card.element.classList.remove('video-error');
+            card.controller = new AbortController();
+
+            fetch(card.source, {
+                cache: 'force-cache',
+                signal: card.controller.signal
+            }).then(function (response) {
+                if (!response.ok) throw new Error('Video request failed.');
+                return response.blob();
+            }).then(function (videoBlob) {
+                if (!card.loading) return;
+
+                card.blobUrl = URL.createObjectURL(videoBlob);
+                card.video.src = card.blobUrl;
+                card.video.load();
+
+                return new Promise(function (resolve, reject) {
+                    card.video.addEventListener('loadeddata', resolve, { once: true });
+                    card.video.addEventListener('error', function () {
+                        reject(new Error('Video could not be decoded.'));
+                    }, { once: true });
+                });
+            }).then(function () {
+                card.ready = true;
+                card.loading = false;
+                card.controller = null;
+                card.element.classList.remove('video-loading');
+                card.element.classList.add('video-ready');
+                if (cards[lastVideoIndex] === card && sliderVisible && !document.hidden) {
+                    card.video.play().catch(function () {});
+                }
+            }).catch(function (error) {
+                card.loading = false;
+                card.controller = null;
+                card.element.classList.remove('video-loading');
+                if (error.name !== 'AbortError') {
+                    if (card.blobUrl) {
+                        URL.revokeObjectURL(card.blobUrl);
+                        card.blobUrl = null;
+                        card.video.removeAttribute('src');
+                        card.video.load();
+                    }
+                    card.element.classList.add('video-error');
+                    console.error('Unable to load showcase video:', card.source, error);
                 }
             });
         }
 
-        // Start playing after metadata loads
-        var loadedCount = 0;
-        cards.forEach(function (c, index) {
-            var video = c.querySelector('video');
-            video.addEventListener('loadedmetadata', function () {
-                loadedCount++;
-                if (loadedCount === cards.length) {
-                    playAllVideos();
+        function syncVideos(activeIndex) {
+            if (document.hidden || !sliderVisible) {
+                pauseVideos();
+                return;
+            }
+
+            cards.forEach(function (card, index) {
+                if (index === activeIndex) {
+                    if (card.ready) {
+                        if (card.video.paused) card.video.play().catch(function () {});
+                    } else {
+                        loadSlide(card);
+                    }
+                } else {
+                    card.video.pause();
+                    if (card.loading && card.controller) {
+                        card.controller.abort();
+                    }
+
+                    var distance = Math.abs(card.baseAngle - rotation) % 360;
+                    distance = Math.min(distance, 360 - distance);
+                    if (distance > 30 && card.ready) {
+                        card.video.removeAttribute('src');
+                        card.video.load();
+                        URL.revokeObjectURL(card.blobUrl);
+                        card.blobUrl = null;
+                        card.ready = false;
+                        card.element.classList.remove('video-ready');
+                    }
                 }
             });
-            // Fallback: try to play anyway
-            setTimeout(function () {
-                video.play().catch(function (e) { });
-            }, 1000 * (index + 1));
-        });
+        }
 
         function update() {
-            if (!isDragging) {
+            if (document.hidden || !sliderVisible) {
+                pauseVideos();
+                animationId = null;
+                return;
+            }
+
+            var nearestIndex = 0;
+            var nearestDistance = 360;
+            cards.forEach(function (card, index) {
+                var eff = (card.baseAngle - rotation) % 360;
+                if (eff > 180) eff -= 360;
+                if (eff < -180) eff += 360;
+                var distance = Math.abs(eff);
+                card.element.classList.toggle('is-active', distance < THRESHOLD);
+                if (distance < nearestDistance) {
+                    nearestDistance = distance;
+                    nearestIndex = index;
+                }
+            });
+
+            if (nearestIndex !== lastVideoIndex) {
+                lastVideoIndex = nearestIndex;
+                syncVideos(nearestIndex);
+            } else if (
+                !cards[nearestIndex].ready &&
+                !cards[nearestIndex].loading &&
+                !cards[nearestIndex].element.classList.contains('video-error')
+            ) {
+                loadSlide(cards[nearestIndex]);
+            }
+
+            if (!isDragging && !reducedMotion && cards[nearestIndex].ready) {
                 rotation += SPEED;
                 if (rotation > 360) rotation -= 360;
             }
             track.style.transform = 'rotateY(' + rotation + 'deg)';
 
-            cards.forEach(function (c) {
-                var eff = (c._baseAngle - rotation) % 360;
-                if (eff > 180) eff -= 360;
-                if (eff < -180) eff += 360;
-                var isActive = Math.abs(eff) < THRESHOLD;
-                c.classList.toggle('is-active', isActive);
+            animationId = window.requestAnimationFrame(update);
+        }
 
-                // Ensure videos keep playing
-                var video = c.querySelector('video');
-                if (video) {
-                    if (video.paused && !video.ended) {
-                        video.play().catch(function (e) { });
+        if ('IntersectionObserver' in window) {
+            var sliderObserver = new IntersectionObserver(function (entries) {
+                sliderVisible = entries[0].isIntersecting;
+                if (sliderVisible) {
+                    lastVideoIndex = -1;
+                    update();
+                } else {
+                    pauseVideos();
+                    if (animationId !== null) {
+                        window.cancelAnimationFrame(animationId);
+                        animationId = null;
                     }
                 }
-            });
-
-            animationId = requestAnimationFrame(update);
+            }, { rootMargin: '100px' });
+            sliderObserver.observe(track.closest('.slider-section') || track);
+        } else {
+            update();
         }
-        update();
 
         function onStart(clientX) {
             isDragging = true;
             dragStartX = clientX;
             dragStartRot = rotation;
             track.style.cursor = 'grabbing';
-
-            // Ensure all videos keep playing during drag
-            cards.forEach(function (c) {
-                var video = c.querySelector('video');
-                if (video && video.paused) {
-                    video.play().catch(function (e) { });
-                }
-            });
         }
 
         function onMove(clientX) {
@@ -294,29 +415,13 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
             rotation = dragStartRot + delta;
             if (rotation > 360) rotation -= 360;
             if (rotation < 0) rotation += 360;
-
-            // Keep videos playing during drag
-            cards.forEach(function (c) {
-                var video = c.querySelector('video');
-                if (video && video.paused) {
-                    video.play().catch(function (e) { });
-                }
-            });
         }
 
         function onEnd() {
+            if (!isDragging) return;
             isDragging = false;
             track.style.cursor = 'grab';
-
-            // Ensure videos resume after drag
-            setTimeout(function () {
-                cards.forEach(function (c) {
-                    var video = c.querySelector('video');
-                    if (video && video.paused) {
-                        video.play().catch(function (e) { });
-                    }
-                });
-            }, 100);
+            lastVideoIndex = -1;
         }
 
         // Mouse events
@@ -345,62 +450,32 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
         track.addEventListener('touchend', onEnd, { passive: true });
         track.addEventListener('touchcancel', onEnd, { passive: true });
 
-        // Keyboard controls
-        window.addEventListener('keydown', function (e) {
+        track.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft') {
                 rotation -= 6;
                 if (rotation < 0) rotation += 360;
                 e.preventDefault();
-                // Keep videos playing
-                cards.forEach(function (c) {
-                    var video = c.querySelector('video');
-                    if (video && video.paused) {
-                        video.play().catch(function (e) { });
-                    }
-                });
             }
             if (e.key === 'ArrowRight') {
                 rotation += 6;
                 if (rotation > 360) rotation -= 360;
                 e.preventDefault();
-                // Keep videos playing
-                cards.forEach(function (c) {
-                    var video = c.querySelector('video');
-                    if (video && video.paused) {
-                        video.play().catch(function (e) { });
-                    }
-                });
             }
         });
 
-        // Handle visibility change - resume videos when tab is visible
         document.addEventListener('visibilitychange', function () {
-            if (!document.hidden) {
-                playAllVideos();
+            if (document.hidden) {
+                pauseVideos();
+                if (animationId !== null) {
+                    window.cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            } else if (sliderVisible) {
+                lastVideoIndex = -1;
+                update();
             }
         });
 
-        // Click anywhere on page to resume videos
-        document.addEventListener('click', function () {
-            playAllVideos();
-        }, { once: false });
-
-        // Touch anywhere on page to resume videos
-        document.addEventListener('touchstart', function () {
-            playAllVideos();
-        }, { once: false });
-
-        // Resume videos on scroll
-        window.addEventListener('scroll', function () {
-            cards.forEach(function (c) {
-                var video = c.querySelector('video');
-                if (video && video.paused) {
-                    video.play().catch(function (e) { });
-                }
-            });
-        }, { passive: true });
-
-        console.log('Video slider initialized with ' + NUM + ' cards and ' + videos.length + ' videos');
     })();
 
 
@@ -425,5 +500,3 @@ PRICING TOGGLE - PROJECT BASED / QUICK ADD
     }
 
 })();
-
-

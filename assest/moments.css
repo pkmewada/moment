@@ -603,9 +603,15 @@ h6 {
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
     pointer-events: none;
     user-select: none;
     transform: scaleX(-1);
+    transition: opacity 0.25s ease;
+}
+
+.curved-slide.video-ready video {
+    opacity: 1;
 }
 
 /* Active state with subtle glow */
@@ -3846,4 +3852,118 @@ TESTIMONIALS - 3 COLUMN WITH VERTICAL SCROLL
 .submit-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.97);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.page-loader.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 28px;
+    text-align: center;
+}
+
+.page-loader-card img {
+    width: 180px;
+    height: auto;
+}
+
+.page-loader-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #dce5e8;
+    border-top-color: #00cbd7;
+    border-radius: 50%;
+    animation: page-loader-spin 0.8s linear infinite;
+}
+
+.page-loader-text {
+    color: #555867;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@keyframes page-loader-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-loader-spinner {
+        animation-duration: 1.8s;
+    }
+}
+
+.curved-slide {
+    background: linear-gradient(145deg, #e8fbfc, #cceff2);
+}
+
+.curved-slide.video-loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(9, 10, 22, 0.16);
+    border-top-color: #00d8e4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: page-loader-spin 0.8s linear infinite;
+    pointer-events: none;
+}
+
+.curved-slide.video-loading::before {
+    content: "Loading full video...";
+    position: absolute;
+    top: calc(50% + 32px);
+    left: 50%;
+    width: max-content;
+    max-width: 90%;
+    color: #171a2b;
+    font: 600 13px/1.4 Arial, sans-serif;
+    text-align: center;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.curved-slide.video-error::after {
+    content: "Video couldn't load. Please try again.";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    color: #171a2b;
+    font: 600 13px/1.5 Arial, sans-serif;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .curved-slide.video-loading::after {
+        animation-duration: 1.8s;
+    }
+
+    .curved-slide video {
+        transition: none;
+    }
 }
