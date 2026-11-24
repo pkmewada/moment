@@ -185,14 +185,14 @@ SERVICE & PRICING - ALL EXPANDED (UPDATED WITH ADD-ONS)
                         <p>Perfect for small celebrations and personal moments.</p>
                     </div>
                     <div class="pricing-item-cats">
-                        <span class="pricing-item-cat">Up to 2 Hours Coverage</span>
+                        <span class="pricing-item-cat">Up to 1.5 Hours Coverage</span>
                         <span class="pricing-item-cat">Professional Videography</span>
                         <span class="pricing-item-cat">1 Edited Reel (25–40 sec)</span>
                         <span class="pricing-item-cat">Digital Delivery</span>
-                        <span class="pricing-item-cat">Extra Timimg Quick ADD</span>
+                        <span class="pricing-item-cat">Extra Timing Quick ADD</span>
                     </div>
                 </div>
-                <div class="pricing-item-price">₹1,699</div>
+                <div class="pricing-item-price">₹1,999</div>
             </div>
 
             <!-- Extended Package -->
@@ -214,7 +214,7 @@ SERVICE & PRICING - ALL EXPANDED (UPDATED WITH ADD-ONS)
                         <span class="pricing-item-cat">Add Extra Vedio Quick Add</span>
                     </div>
                 </div>
-                <div class="pricing-item-price">₹4,499</div>
+                <div class="pricing-item-price">₹5,499</div>
             </div>
 
             <!-- Wedding Package -->
@@ -614,8 +614,8 @@ GUARANTEE - WITH 6 POINTS
             <div class="guarantee-image-wrapper">
                 <div class="guarantee-image">
                     <img loading="lazy" decoding="async" width="1024" height="1024"
-                        src="images/dream-1.jpg"
-                        srcset="images/dream-1.jpg 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
+                        src="images/b.png"
+                        srcset="images/b.png 1024w, images/dream-1-300x300.jpg 300w, images/dream-1-150x150.jpg 150w, images/dream-1-768x768.jpg 768w, images/dream-1-600x600.jpg 600w, images/dream-1-100x100.jpg 100w"
                         sizes="(max-width: 1024px) 100vw, 1024px"
                         alt="dream">
                 </div>

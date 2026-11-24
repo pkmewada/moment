@@ -21,7 +21,7 @@
         <div class="header-inner">
             <div class="header-logo">
                 <a href="moments">
-                    <img src="images/image.png" alt="Moments" width="auto" height="auto">
+                    <img src="images/logo.png" alt="Moments" width="auto" height="auto">
                 </a>
             </div>
 

@@ -2,16 +2,14 @@
 
 header("Content-Type: application/json; charset=utf-8");
 
-function send_json($success, $message) {
-    http_response_code($success ? 200 : 400);
+function send_json($success, $message, $statusCode = null) {
+    http_response_code($statusCode ?? ($success ? 200 : 400));
     echo json_encode([
         "success" => $success,
         "message" => $message
     ]);
     exit;
 }
-
-require_once __DIR__ . "/connection.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     send_json(false, "Invalid request method.");
@@ -26,11 +24,7 @@ $address = trim($_POST["address"] ?? "");
 $event_date = trim($_POST["event-date"] ?? "");
 $message = trim($_POST["message"] ?? "");
 
-if (
-    $name === "" ||
-    $phone === "" ||
-    $event_date === ""
-) {
+if ($name === "" || $phone === "" || $event_date === "") {
     send_json(false, "Please fill all required fields.");
 }
 
@@ -38,85 +32,48 @@ if ($email !== "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_json(false, "Please enter a valid email address.");
 }
 
-if (strtotime($event_date) === false) {
+if (
+    !preg_match('/^\d{4}-\d{2}-\d{2}$/', $event_date) ||
+    !checkdate((int) substr($event_date, 5, 2), (int) substr($event_date, 8, 2), (int) substr($event_date, 0, 4))
+) {
     send_json(false, "Please enter a valid event date.");
 }
 
-if ($conn instanceof mysqli) {
-    $createTableSql = "CREATE TABLE IF NOT EXISTS bookings (
-        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-        name VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
-        phone VARCHAR(50) NOT NULL,
-        event_type VARCHAR(100) NOT NULL,
-        city VARCHAR(120) NOT NULL,
-        address TEXT NOT NULL,
-        event_date DATE NOT NULL,
-        message TEXT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (id)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+$recipient = "pp8754352@gmail.com";
+$subject = "New booking request - Moments by MQlus";
+$body = implode("\r\n", [
+    "A new booking request was submitted on the Moments by MQlus website.",
+    "",
+    "Name: " . $name,
+    "Email: " . ($email !== "" ? $email : "Not provided"),
+    "Phone: " . $phone,
+    "Event type: " . ($event_type !== "" ? $event_type : "Not provided"),
+    "City: " . ($city !== "" ? $city : "Not provided"),
+    "Event date: " . $event_date,
+    "Address / venue: " . ($address !== "" ? $address : "Not provided"),
+    "",
+    "Additional details:",
+    $message !== "" ? $message : "None"
+]);
 
-    if (!$conn->query($createTableSql)) {
-        send_json(false, "Unable to prepare the booking table.");
-    }
-
-    $sql = "INSERT INTO bookings
-           (name, email, phone, event_type, city, address, event_date, message)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql);
-
-    if (!$stmt) {
-        send_json(false, "Database query error.");
-    }
-
-    $stmt->bind_param(
-        "ssssssss",
-        $name,
-        $email,
-        $phone,
-        $event_type,
-        $city,
-        $address,
-        $event_date,
-        $message
-    );
-
-    if ($stmt->execute()) {
-        $stmt->close();
-        $conn->close();
-        send_json(true, "Booking request sent successfully!");
-    }
-
-    $stmt->close();
-    $conn->close();
-    send_json(false, "Unable to save booking. Please try again.");
-}
-
-$backupPath = __DIR__ . "/bookings.json";
-$entry = [
-    "name" => $name,
-    "email" => $email,
-    "phone" => $phone,
-    "event_type" => $event_type,
-    "city" => $city,
-    "address" => $address,
-    "event_date" => $event_date,
-    "message" => $message,
-    "created_at" => date("Y-m-d H:i:s")
+$headers = [
+    "From: Moments by MQlus <connect@mqlus.in>",
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=UTF-8"
 ];
 
-$existing = [];
-if (file_exists($backupPath)) {
-    $existing = json_decode(file_get_contents($backupPath), true);
-    if (!is_array($existing)) {
-        $existing = [];
-    }
+if ($email !== "") {
+    $headers[] = "Reply-To: " . $email;
 }
 
-$existing[] = $entry;
-file_put_contents($backupPath, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), LOCK_EX);
+if (!mail($recipient, $subject, $body, implode("\r\n", $headers))) {
+    error_log("Booking notification email could not be sent.");
+    send_json(
+        false,
+        "We couldn't send your request right now. Please try again or email us at connect@mqlus.in.",
+        500
+    );
+}
 
 send_json(true, "Booking request sent successfully!");
 
