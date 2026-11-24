@@ -41,102 +41,40 @@ if (
 
 $recipient = "pp8754352@gmail.com";
 $subject = "New booking request - Moments by MQlus";
-$escape = function ($value) {
-    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
-};
-$displayDate = DateTime::createFromFormat("!Y-m-d", $event_date)->format("l, d F Y");
-$rows = [
-    ["Email", $email !== "" ? $email : "Not provided"],
-    ["Phone", $phone],
-    ["Event type", $event_type !== "" ? $event_type : "Not provided"],
-    ["City", $city !== "" ? $city : "Not provided"],
-    ["Event date", $displayDate],
-    ["Address / venue", $address !== "" ? $address : "Not provided"]
-];
-
-$detailsHtml = "";
-foreach ($rows as $index => $row) {
-    $background = $index % 2 === 0 ? "#f7f8fc" : "#ffffff";
-    $detailsHtml .= '<tr><td style="padding:13px 16px;background:' . $background . ';color:#697386;font-size:14px;border-bottom:1px solid #e9edf4;width:36%;">' .
-        $escape($row[0]) . '</td><td style="padding:13px 16px;background:' . $background . ';color:#171a2b;font-size:14px;font-weight:600;border-bottom:1px solid #e9edf4;">' .
-        nl2br($escape($row[1])) . '</td></tr>';
-}
-
-$htmlBody = '<!doctype html><html><body style="margin:0;padding:0;background:#f2f4f8;font-family:Arial,Helvetica,sans-serif;color:#171a2b;">' .
-    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f2f4f8;padding:32px 12px;"><tr><td align="center">' .
-    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:620px;background:#ffffff;border-radius:16px;overflow:hidden;">' .
-    '<tr><td style="padding:26px 32px;background:#090a16;border-bottom:4px solid #00cbd7;">' .
-    '<div style="font-size:13px;line-height:1.5;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#ffffff;">MOMENTS <span style="color:#00d8e4;">BY MQLUS</span></div>' .
-    '<div style="margin-top:22px;font-size:11px;line-height:1.4;letter-spacing:2px;text-transform:uppercase;color:#9da4b8;">New website enquiry</div>' .
-    '<div style="margin-top:7px;font-size:25px;line-height:1.25;font-weight:700;color:#ffffff;">Booking request received</div>' .
-    '</td></tr><tr><td style="padding:28px 32px 18px;">' .
-    '<div style="font-size:14px;line-height:1.6;color:#697386;">A new booking enquiry has arrived. Here are the details:</div>' .
-    '<div style="margin-top:18px;padding:17px 19px;background:#e9fbfc;border-left:4px solid #00cbd7;border-radius:8px;font-size:20px;line-height:1.35;font-weight:700;color:#101525;">' .
-    $escape($name) . '</div></td></tr>' .
-    '<tr><td style="padding:0 32px 24px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border:1px solid #e9edf4;border-radius:10px;overflow:hidden;">' .
-    $detailsHtml .
-    '</table></td></tr>' .
-    '<tr><td style="padding:0 32px 28px;"><div style="margin-bottom:9px;font-size:12px;letter-spacing:1px;font-weight:700;text-transform:uppercase;color:#697386;">Additional details</div>' .
-    '<div style="padding:16px;background:#f7f8fc;border-radius:9px;font-size:14px;line-height:1.7;color:#30364a;">' .
-    ($message !== "" ? nl2br($escape($message)) : "No additional details provided.") .
-    '</div></td></tr>' .
-    '<tr><td style="padding:18px 32px;background:#090a16;color:#9da4b8;font-size:12px;line-height:1.6;">Sent from the <strong style="color:#ffffff;">Moments by MQlus</strong> website booking form.<br>' .
-    '<a href="mailto:' . $escape($email !== "" ? $email : "connect@mqlus.in") . '" style="color:#00d8e4;text-decoration:none;">Reply to this enquiry</a></td></tr>' .
-    '</table></td></tr></table></body></html>';
-
-$plainBody = "New booking request - Moments by MQlus\r\n\r\n" .
-    "Name: " . $name . "\r\n" .
-    "Email: " . ($email !== "" ? $email : "Not provided") . "\r\n" .
-    "Phone: " . $phone . "\r\n" .
-    "Event type: " . ($event_type !== "" ? $event_type : "Not provided") . "\r\n" .
-    "City: " . ($city !== "" ? $city : "Not provided") . "\r\n" .
-    "Event date: " . $displayDate . "\r\n" .
-    "Address / venue: " . ($address !== "" ? $address : "Not provided") . "\r\n\r\n" .
-    "Additional details:\r\n" . ($message !== "" ? $message : "None");
-
-$boundary = "moments_" . bin2hex(random_bytes(16));
-$mailBody = "--" . $boundary . "\r\n" .
-    "Content-Type: text/plain; charset=UTF-8\r\n" .
-    "Content-Transfer-Encoding: base64\r\n\r\n" .
-    chunk_split(base64_encode($plainBody)) .
-    "--" . $boundary . "\r\n" .
-    "Content-Type: text/html; charset=UTF-8\r\n" .
-    "Content-Transfer-Encoding: base64\r\n\r\n" .
-    chunk_split(base64_encode($htmlBody)) .
-    "--" . $boundary . "--\r\n";
+$body = implode("\r\n", [
+    "A new booking request was submitted on the Moments by MQlus website.",
+    "",
+    "Name: " . $name,
+    "Email: " . ($email !== "" ? $email : "Not provided"),
+    "Phone: " . $phone,
+    "Event type: " . ($event_type !== "" ? $event_type : "Not provided"),
+    "City: " . ($city !== "" ? $city : "Not provided"),
+    "Event date: " . $event_date,
+    "Address / venue: " . ($address !== "" ? $address : "Not provided"),
+    "",
+    "Additional details:",
+    $message !== "" ? $message : "None"
+]);
 
 $headers = [
     "From: Moments by MQlus <connect@mqlus.in>",
-    "To: " . $recipient,
     "MIME-Version: 1.0",
-    "Content-Type: multipart/alternative; boundary=\"" . $boundary . "\""
+    "Content-Type: text/plain; charset=UTF-8"
 ];
 
 if ($email !== "") {
     $headers[] = "Reply-To: " . $email;
 }
 
-set_error_handler(function ($severity, $errorMessage) {
-    if ($severity === E_WARNING && strpos($errorMessage, "mail():") === 0) {
-        error_log($errorMessage);
-        return true;
-    }
-
-    return false;
-}, E_WARNING);
-
-$sent = mail($recipient, $subject, $mailBody, implode("\r\n", $headers));
-restore_error_handler();
-
-if (!$sent) {
-    error_log("Booking email could not be queued for " . $recipient . ".");
+if (!mail($recipient, $subject, $body, implode("\r\n", $headers))) {
+    error_log("Booking notification email could not be sent.");
     send_json(
         false,
-        "Your request could not be sent by the website mail service. Please try again later or email us at connect@mqlus.in.",
+        "We couldn't send your request right now. Please try again or email us at connect@mqlus.in.",
         500
     );
 }
 
-send_json(true, "Booking request was accepted by the website mail service.");
+send_json(true, "Booking request sent successfully!");
 
 ?>
