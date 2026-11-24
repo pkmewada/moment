@@ -631,7 +631,7 @@ GUARANTEE - WITH 6 POINTS
                 <div class="guarantee-point">
                     <div class="guarantee-point-num">05</div>
                     <h5>Affordable Packages</h5>
-                    <p>Premium-quality event content with packages starting at just ₹1,699.</p>
+                    <p>Premium-quality event content with packages starting at just ₹1,999.</p>
                 </div>
                 <div class="guarantee-point">
                     <div class="guarantee-point-num">06</div>

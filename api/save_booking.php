@@ -39,7 +39,10 @@ if (
     send_json(false, "Please enter a valid event date.");
 }
 
-$recipient = "pp8754352@gmail.com";
+$recipients = [
+    "contact@mqlus.in",
+    "hr@mqlus.in"
+];
 $subject = "New booking request - Moments by MQlus";
 $body = implode("\r\n", [
     "A new booking request was submitted on the Moments by MQlus website.",
@@ -66,7 +69,7 @@ if ($email !== "") {
     $headers[] = "Reply-To: " . $email;
 }
 
-if (!mail($recipient, $subject, $body, implode("\r\n", $headers))) {
+if (!mail(implode(", ", $recipients), $subject, $body, implode("\r\n", $headers))) {
     error_log("Booking notification email could not be sent.");
     send_json(
         false,
